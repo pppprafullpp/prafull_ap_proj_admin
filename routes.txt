@@ -1,0 +1,30 @@
+                   Prefix Verb   URI Pattern                       Controller#Action
+        new_admin_session GET    /admins/sign_in(.:format)         devise/sessions#new
+            admin_session POST   /admins/sign_in(.:format)         devise/sessions#create
+    destroy_admin_session DELETE /admins/sign_out(.:format)        devise/sessions#destroy
+           admin_password POST   /admins/password(.:format)        devise/passwords#create
+       new_admin_password GET    /admins/password/new(.:format)    devise/passwords#new
+      edit_admin_password GET    /admins/password/edit(.:format)   devise/passwords#edit
+                          PATCH  /admins/password(.:format)        devise/passwords#update
+                          PUT    /admins/password(.:format)        devise/passwords#update
+cancel_admin_registration GET    /admins/cancel(.:format)          devise/registrations#cancel
+       admin_registration POST   /admins(.:format)                 devise/registrations#create
+   new_admin_registration GET    /admins/sign_up(.:format)         devise/registrations#new
+  edit_admin_registration GET    /admins/edit(.:format)            devise/registrations#edit
+                          PATCH  /admins(.:format)                 devise/registrations#update
+                          PUT    /admins(.:format)                 devise/registrations#update
+                          DELETE /admins(.:format)                 devise/registrations#destroy
+                     root GET    /                                 home#index
+        manage_user_homes GET    /homes/manage_user(.:format)      homes#manage_user
+     social_account_homes GET    /homes/social_account(.:format)   homes#social_account
+        reported_ad_homes GET    /homes/reported_ad(.:format)      homes#reported_ad
+       notification_homes GET    /homes/notification(.:format)     homes#notification
+          ad_review_homes GET    /homes/ad_review(.:format)        homes#ad_review
+   reported_ad_mail_homes GET    /homes/reported_ad_mail(.:format) homes#reported_ad_mail
+                    homes POST   /homes(.:format)                  homes#create
+                new_homes GET    /homes/new(.:format)              homes#new
+               edit_homes GET    /homes/edit(.:format)             homes#edit
+                          GET    /homes(.:format)                  homes#show
+                          PATCH  /homes(.:format)                  homes#update
+                          PUT    /homes(.:format)                  homes#update
+                          DELETE /homes(.:format)                  homes#destroy
