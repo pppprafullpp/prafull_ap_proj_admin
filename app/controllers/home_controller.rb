@@ -6,7 +6,8 @@ class HomeController < ApplicationController
     if !current_admin.has_role? :Admin
       flash[:danger] = "You Are Not the Authentic Admin, Contact Admin to get access"
       reset_session
-      redirect_to root_path
+      # render :text => "Unauthorized"
+      redirect_to "/400"
     end
 
   end
