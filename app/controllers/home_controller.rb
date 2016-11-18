@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       flash[:danger] = "You Are Not the Authentic Admin, Contact Admin to get access"
       reset_session
       # render :text => "Unauthorized"
-      redirect_to "/400"
+      redirect_to "/unauthorized"
     end
 
   end
