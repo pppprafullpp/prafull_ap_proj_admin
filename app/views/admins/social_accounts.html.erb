@@ -28,14 +28,9 @@
                    <div class="row">
                      <div class="col-xs-6">
                        <div id="" class="">
-                         Show
-                         <select name="example1_length" size="1" aria-controls="">
-                             <option value="10" selected="selected">10</option>
-                               <option value="25">25</option>
-                               <option value="50">50</option>
-                               <option value="100">100</option>
-                           </select> Entries per page</div>
+                         <%= page_entries_info @social_accounts%>
                        </div>
+                      </div>
                        <div class="col-xs-6"><div class="dataTables_filter pull-right" id="example1_filter"><label>Search: <input type="text" aria-controls="example1"></label></div>
                        </div>
                    </div>
@@ -70,15 +65,11 @@
                </table>
 
                <!-- Pagination -->
-               <div class="row">
-                   <div class="col-xs-6">
-                     <div class="dataTables_paginate paging_bootstrap pull-right">
-                       <ul class="pagination">
-                        <%=will_paginate @social_accounts%>
-                       </div>
-                   </div>
-               </div>
-
+                        <div class="digg_pagination">
+                          <div class="page_info">
+                          </div>
+                          <%=will_paginate @social_accounts,:class=>"pagination pull-right" %>
+                        </div>
               </div>
             </div>
        </div>

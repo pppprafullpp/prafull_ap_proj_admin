@@ -20,4 +20,6 @@ class AdminsController < ApplicationController
   def social_accounts
     @social_accounts = SocialAccount.all.paginate(:page => params[:page], :per_page=>10)
   end
+
+
 end
