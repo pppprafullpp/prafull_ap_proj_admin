@@ -6,6 +6,7 @@ class AdminsController < ApplicationController
 
   def ad_review
     @breadcrumb = {'Dashboard' => root_url, 'Ad Review' => ''}
+    @advertisements = Advertisement.all.paginate(:page=>params[:page],:per_page=>10)
   end
 
   def reported_ads
@@ -14,5 +15,9 @@ class AdminsController < ApplicationController
 
   def notification
     @breadcrumb = {'Dashboard' => root_url, 'Notification' => ''}
+  end
+
+  def social_accounts
+    @social_accounts = SocialAccount.all.paginate(:page => params[:page], :per_page=>10)
   end
 end

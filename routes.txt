@@ -28,3 +28,42 @@ cancel_admin_registration GET    /admins/cancel(.:format)          devise/regist
                           PATCH  /homes(.:format)                  homes#update
                           PUT    /homes(.:format)                  homes#update
                           DELETE /homes(.:format)                  homes#destroy
+                    Prefix Verb   URI Pattern                           Controller#Action
+         new_admin_session GET    /admins/sign_in(.:format)             devise/sessions#new
+             admin_session POST   /admins/sign_in(.:format)             devise/sessions#create
+     destroy_admin_session DELETE /admins/sign_out(.:format)            devise/sessions#destroy
+            admin_password POST   /admins/password(.:format)            devise/passwords#create
+        new_admin_password GET    /admins/password/new(.:format)        devise/passwords#new
+       edit_admin_password GET    /admins/password/edit(.:format)       devise/passwords#edit
+                           PATCH  /admins/password(.:format)            devise/passwords#update
+                           PUT    /admins/password(.:format)            devise/passwords#update
+ cancel_admin_registration GET    /admins/cancel(.:format)              devise/registrations#cancel
+        admin_registration POST   /admins(.:format)                     devise/registrations#create
+    new_admin_registration GET    /admins/sign_up(.:format)             devise/registrations#new
+   edit_admin_registration GET    /admins/edit(.:format)                devise/registrations#edit
+                           PATCH  /admins(.:format)                     devise/registrations#update
+                           PUT    /admins(.:format)                     devise/registrations#update
+                           DELETE /admins(.:format)                     devise/registrations#destroy
+                      root GET    /                                     home#index
+        manage_user_admins GET    /admins/manage_user(.:format)         admins#manage_user
+    social_accounts_admins GET    /admins/social_accounts(.:format)     admins#social_accounts
+       reported_ads_admins GET    /admins/reported_ads(.:format)        admins#reported_ads
+       notification_admins GET    /admins/notification(.:format)        admins#notification
+          ad_review_admins GET    /admins/ad_review(.:format)           admins#ad_review
+   reported_ad_mail_admins GET    /admins/reported_ad_mail(.:format)    admins#reported_ad_mail
+                    admins POST   /admins(.:format)                     admins#create
+                new_admins GET    /admins/new(.:format)                 admins#new
+               edit_admins GET    /admins/edit(.:format)                admins#edit
+                           GET    /admins(.:format)                     admins#show
+                           PATCH  /admins(.:format)                     admins#update
+                           PUT    /admins(.:format)                     admins#update
+                           DELETE /admins(.:format)                     admins#destroy
+approve_ads_advertisements POST   /advertisements/approve_ads(.:format) advertisements#approve_ads
+decline_ads_advertisements POST   /advertisements/decline_ads(.:format) advertisements#decline_ads
+            advertisements POST   /advertisements(.:format)             advertisements#create
+        new_advertisements GET    /advertisements/new(.:format)         advertisements#new
+       edit_advertisements GET    /advertisements/edit(.:format)        advertisements#edit
+                           GET    /advertisements(.:format)             advertisements#show
+                           PATCH  /advertisements(.:format)             advertisements#update
+                           PUT    /advertisements(.:format)             advertisements#update
+                           DELETE /advertisements(.:format)             advertisements#destroy

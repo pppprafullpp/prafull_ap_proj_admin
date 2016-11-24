@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     get :reported_ad_mail
   end
 
+  resource :advertisements do
+    post :approve_ads
+    post :decline_ads
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
