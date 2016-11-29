@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118090009) do
+ActiveRecord::Schema.define(version: 20161129061809) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161118090009) do
   add_index "admins_roles", ["admin_id", "role_id"], name: "index_admins_roles_on_admin_id_and_role_id", using: :btree
 
   create_table "advertisements", force: :cascade do |t|
-    t.integer  "ad_type",            limit: 4
+    t.string   "ad_type",            limit: 255
     t.text     "url",                limit: 65535
     t.text     "message",            limit: 65535
     t.string   "title",              limit: 255
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20161118090009) do
     t.integer  "platform",           limit: 4
     t.integer  "status",             limit: 4
     t.integer  "category",           limit: 4
+    t.text     "ad_image_url",       limit: 65535
   end
 
   create_table "advertisers", force: :cascade do |t|
@@ -86,10 +87,18 @@ ActiveRecord::Schema.define(version: 20161118090009) do
     t.string   "providerid",             limit: 255
     t.string   "uid",                    limit: 255
     t.integer  "wallet_amount",          limit: 4
+    t.string   "advertiser_type",        limit: 255
   end
 
   add_index "advertisers", ["email"], name: "index_advertisers_on_email", unique: true, using: :btree
   add_index "advertisers", ["reset_password_token"], name: "index_advertisers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "app_configurations", force: :cascade do |t|
+    t.string   "config_key",   limit: 255
+    t.string   "config_value", limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "campaigns", force: :cascade do |t|
     t.integer  "category_id",               limit: 4
