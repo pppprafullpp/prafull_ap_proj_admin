@@ -26,3 +26,21 @@
       }
      })
     }
+
+    function make_changes_in_app_configurations(key,value) {
+      response ={};
+      $.ajax({
+        "async":false,
+        global:false,
+        url:"/app_configurations",
+        type:"put",
+        data:{
+          config_key:key,
+          config_value:value
+        },
+        success: function(res) {
+          response = res;
+        }
+      });
+      return response;
+    }

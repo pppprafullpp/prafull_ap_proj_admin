@@ -12,9 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap/bootstrap-tooltip
 //= require turbolinks
 //= require toastr
 //= require_tree .
+ 
+$(function(){
+  $("a[rel='tooltip']").tooltip();
+})
 
 	 toastr.options = {
 	                  "closeButton": false,
@@ -30,8 +35,6 @@
 	                  "showMethod": "fadeIn",
 	                  "hideMethod": "fadeOut"
 	              }
-
-
 
 var app = function() {
 

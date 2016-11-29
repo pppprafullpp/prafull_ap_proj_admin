@@ -18,8 +18,14 @@ class AdminsController < ApplicationController
   end
 
   def social_accounts
+    @breadcrumb = {'Dashboard' => root_url, 'Social Accounts' => ''}
     @social_accounts = SocialAccount.all.paginate(:page => params[:page], :per_page=>10)
   end
 
+  def app_configurations
+    @breadcrumb = {'Dashboard' => root_url, 'App configurations' => ''}
+    @app_configurations = AppConfiguration.all
+    @update_social_data = AppConfiguration.find_by(:config_key=>"update_social_data").config_value
+  end
 
 end
