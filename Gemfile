@@ -58,3 +58,5 @@ gem 'whenever', :require => false
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'mysql2'
 gem 'rolify'
+gem 'delayed_job_active_record'
+gem 'cloudinary'

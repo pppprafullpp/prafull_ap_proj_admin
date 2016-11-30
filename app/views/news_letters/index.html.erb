@@ -99,10 +99,9 @@
                   <div class="row">
                      <div class="col-md-12">
                        <div class="table-responsive">
-                         <table id="example" class="table table-striped" cellspacing="0" width="100%">
+                         <table id="display-table" class="table table-striped" cellspacing="0" width="100%">
                          <thead>
                              <tr>
-                                 <th width="45"><input type="checkbox" id="" value=""></th>
                                  <th>User Type</th>
                                  <%if @table_data.class.to_s.split(":").first == "Influencer" %>
                                   <th>Category</th>
@@ -115,7 +114,7 @@
                          <tbody>
                            <%@table_data.each do |d|%>
                              <tr>
-                                 <td><input type="checkbox" id="" value=""></td>
+                                 <td><input type="checkbox" id="ck_user" onclick="add_new_email(this.value)" value="<%=d.email%>"></td>
                                  <td><%=d.class%></td>
                                  <%if @table_data.class.to_s.split(":").first == "Influencer" %>
                                  <td><%=d.category%></td>
@@ -147,52 +146,71 @@
 
 <div class="row">
 <div class="col-md-12">
-<div class="panel panel-default">
-<div class="panel-body">
+  <div class="panel panel-default">
+    <div class="panel-body">
 
-<header>
-<h2>New Message</h2>
-</header>
+      <%=form_for :send_newsletters, :url=>send_newsletters_news_letters_path,:method=>"post" do%>
+    <header>
+    <h2>New Message</h2>
+    </header>
 
-<div class="row">
-<div class="col-md-12">
-<div class="panel view-compose-body">
-<div class="panel-body">
-<div class="form-group">
-<input class="form-control" id="to" placeholder="To:" type="email">
-<div class="send-options">
-<a href="javascript:void(0);" class="ccLink">Cc</a>
-<a href="javascript:void(0);" class="bccLink">Bcc</a>
-</div>
-</div>
-<div class="form-group" id="form-group-cc">
-<input class="form-control" id="cc" placeholder="Cc:" type="text">
-</div>
-<div class="form-group" id="form-group-bcc">
-<input class="form-control" id="bcc" placeholder="Bcc:" type="text">
-</div>
-<div class="form-group">
-<input class="form-control" id="subject" placeholder="Subject:" type="text">
-</div>
+    <div class="row">
+    <div class="col-md-12">
+    <div class="panel view-compose-body">
+    <div class="panel-body">
+    <div class="form-group">
+      <th width="45">
+        <input type="checkbox" name="sent_to_all_influencers" id="mail_all_influencers" onclick="send_to_all_influencers()">send to all influencers</th><br />
+        <input type="checkbox" name="sent_to_all_advertisers" id="mail_all_advertisers" onclick="send_to_all_advertisers()">send to all advertisers</th>
 
-<textarea class="textarea form-control" rows="5" cols="40" placeholder="Enter text ..." style="width: 100%; height: 200px"></textarea>
-</div>
-<div class="panel-footer">
-<button class="btn btn-sm btn-primary ">Send</button>
-<button class="btn btn-default btn-sm "><i class="fa fa-times"></i> Discard</button>
-<button class="btn btn-default btn-sm pull-right"><i class="fa fa-paperclip"></i> Attach a File</button>
+        <%=text_field_tag :mail_to,"",:placeholder=>"Email",:class=>"form-control"%>
+    </div>
+    <div class="form-group">
+      <%=text_field_tag :subject,"",:placeholder=>"Subject",:class=>"form-control"%>
+    </div>
 
-</div>
-</div>
-</div>
-</div>
+    <%=text_area_tag :message,"",:row=>"5",:cols=>"40",:placeholder=>"Enter message",:style=>"width:100%;height:200px",:class=>"textarea form-control"%>
 
-</div>
-</div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-sm btn-primary ">Send</button>
+      <button class="btn btn-default btn-sm "><i class="fa fa-times"></i> Discard</button>
+       <i class="fa fa-paperclip"></i><%=file_field_tag :attachement, :class=>"btn btn-default btn-sm pull-right"  %>
+    </div>
+    </div>
+    </div>
+    </div>
+    <%end%>
+    </div>
+  </div>
 </div>
 </div>
 
+<script>
+function send_to_all_influencers(){
+  if ($("#mail_all_influencers").is(":checked") == true) {
+        // $("input[type=checkbox]").prop("checked","checked");
+        $("#mail_to").attr("readonly",true);
+    }
+    else {
+        $("input[type=checkbox]").prop("checked",false);
+        $("#mail_to").attr("readonly",false);
+    }}
+    function send_to_all_advertisers(){
+      if ($("#mail_all_advertisers").is(":checked") == true) {
+            // $("input[type=checkbox]").prop("checked","checked");
+            $("#mail_to").attr("readonly",true);
+        }
+        else {
+            // $("input[type=checkbox]").prop("checked",false);
+            $("#mail_to").attr("readonly",false);
+        }}
 
+    function add_new_email(email) {
+      console.log(email);
+      $("#mail_to").val($("#mail_to").val()+email+",");
+    }
+</script>
 
    </section>
 </section>

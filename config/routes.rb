@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :news_letters do
     collection do
-      get :filters_for_newsletter  
+      post :send_newsletters
     end
 
   end
