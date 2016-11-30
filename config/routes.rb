@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get :manage_user
     get :social_accounts
     get :reported_ads
-    get :notification
+    get :newsletter
     get :ad_review
     get :reported_ad_mail
     get :app_configurations
@@ -21,6 +21,12 @@ Rails.application.routes.draw do
     post :decline_ads
   end
 
+  resources :news_letters do
+    collection do
+      get :filters_for_newsletter  
+    end
+
+  end
   resource :app_configurations
 
   # Example of regular route:

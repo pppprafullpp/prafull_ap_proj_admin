@@ -1,0 +1,198 @@
+<%=render :partial=>"layouts/header"%>
+<%=render :partial=>"layouts/left_panel"%>
+<section class="main-content-wrapper column">
+   <section id="main-content">
+        <div class="row">
+           <div class="col-md-12">
+               <!--breadcrumbs start -->
+               <ul class="breadcrumb">
+                   <li><a href="#">Dashboard</a></li>
+                   <li class="active">Notifications</li>
+               </ul>
+               <!--breadcrumbs end -->
+           <h1 class="h1"><i class="fa fa-envelope"></i> Notifications</h1>
+       </div>
+       </div>
+
+      <div class="row">
+      <div class="col-md-12">
+      <div class="borderBox">
+      <div class="row">
+      <%=form_for :search,:url=>news_letters_path, :method=>"get" do |f|%>
+
+      <div class="col-md-3">
+      <div class="form-group">
+
+      <label class="" for="">User Type</label>
+      <%=select_tag(:user_type,options_for_select([["Advertiser","advertiser"],["Influencer","influencer"]],params[:user_type]),:class=>"form-control")%>
+
+      </div>
+      </div>
+
+      <div class="col-md-3">
+      <div class="form-group">
+        <label class="" for="">Category</label>
+        <%=f.select(:category,options_for_select(Category.pluck(:name)),{},:class=>"form-control")%>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+      <div class="form-group">
+
+      <label class="" for="">Type Keyword</label>
+        <input type="text" name="keyword" value="<%=params[:keyword]%>" class="form-control">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary mgTop30" style="margin-top: 9%">Search</button>
+        <a href="/news_letters" class="btn btn-primary mgTop30" style="margin-top: 9%">Clear<a>
+      </div>
+
+      <%end%>
+
+      </div>
+
+      <div class="row">
+      <div class="col-md-12">
+      <div class="pull-left">Search By:</div>
+      <div class="btn-toolbar">
+      <div class="btn-group btn-group-sm">
+      <a href="<%=news_letters_path(alphabet:'a')%>" class="btn btn-default">A</a>
+      <a href="<%=news_letters_path(alphabet:'b')%>" class="btn btn-default">B</a>
+      <a href="<%=news_letters_path(alphabet:'c')%>" class="btn btn-default">C</a>
+      <a href="<%=news_letters_path(alphabet:'d')%>" class="btn btn-default">D</a>
+      <a href="<%=news_letters_path(alphabet:'e')%>" class="btn btn-default">E</a>
+      <a href="<%=news_letters_path(alphabet:'f')%>" class="btn btn-default">F</a>
+      <a href="<%=news_letters_path(alphabet:'g')%>" class="btn btn-default">G</a>
+      <a href="<%=news_letters_path(alphabet:'h')%>" class="btn btn-default">H</a>
+      <a href="<%=news_letters_path(alphabet:'i')%>" class="btn btn-default">I</a>
+      <a href="<%=news_letters_path(alphabet:'j')%>" class="btn btn-default">J</a>
+      <a href="<%=news_letters_path(alphabet:'k')%>" class="btn btn-default">K</a>
+      <a href="<%=news_letters_path(alphabet:'l')%>" class="btn btn-default">L</a>
+      <a href="<%=news_letters_path(alphabet:'m')%>" class="btn btn-default">M</a>
+      <a href="<%=news_letters_path(alphabet:'n')%>" class="btn btn-default">N</a>
+      <a href="<%=news_letters_path(alphabet:'o')%>" class="btn btn-default">O</a>
+      <a href="<%=news_letters_path(alphabet:'p')%>" class="btn btn-default">P</a>
+      <a href="<%=news_letters_path(alphabet:'q')%>" class="btn btn-default">Q</a>
+      <a href="<%=news_letters_path(alphabet:'r')%>" class="btn btn-default">R</a>
+      <a href="<%=news_letters_path(alphabet:'s')%>" class="btn btn-default">S</a>
+      <a href="<%=news_letters_path(alphabet:'t')%>" class="btn btn-default">T</a>
+      <a href="<%=news_letters_path(alphabet:'u')%>" class="btn btn-default">U</a>
+      <a href="<%=news_letters_path(alphabet:'v')%>" class="btn btn-default">V</a>
+      <a href="<%=news_letters_path(alphabet:'w')%>" class="btn btn-default">W</a>
+      <a href="<%=news_letters_path(alphabet:'x')%>" class="btn btn-default">X</a>
+      <a href="<%=news_letters_path(alphabet:'y')%>" class="btn btn-default">Y</a>
+      <a href="<%=news_letters_path(alphabet:'z')%>" class="btn btn-default">Z</a>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+</div>
+
+<div class="row">
+     <div class="col-md-12">
+         <div class="panel panel-default">
+           <div class="panel-body">
+                  <div class="row">
+                     <div class="col-md-12">
+                       <div class="table-responsive">
+                         <table id="example" class="table table-striped" cellspacing="0" width="100%">
+                         <thead>
+                             <tr>
+                                 <th width="45"><input type="checkbox" id="" value=""></th>
+                                 <th>User Type</th>
+                                 <%if @table_data.class.to_s.split(":").first == "Influencer" %>
+                                  <th>Category</th>
+                                 <%end%>
+                                 <th>Name</th>
+                                 <th>Email</th>
+                             </tr>
+                         </thead>
+
+                         <tbody>
+                           <%@table_data.each do |d|%>
+                             <tr>
+                                 <td><input type="checkbox" id="" value=""></td>
+                                 <td><%=d.class%></td>
+                                 <%if @table_data.class.to_s.split(":").first == "Influencer" %>
+                                 <td><%=d.category%></td>
+                                 <%end%>
+                                 <td><%=d.name%></td>
+                                 <td><%=d.email%></td>
+                             </tr>
+                             <%end%>
+                         </tbody>
+                     </table>
+                     </div>
+                     </div>
+                 </div>
+
+                 <!-- Pagination -->
+         <div class="row">
+           <div class="col-md-6">
+               <div class="dataTables_info" id=""> <%= page_entries_info @table_data%></div>
+             </div>
+             <div class="col-md-6">
+               <%=will_paginate @table_data, :class=>"dataTables_paginate paging_bootstrap pull-right dataTables_info"%>
+             </div>
+         </div>
+
+             </div>
+      </div>
+ </div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-default">
+<div class="panel-body">
+
+<header>
+<h2>New Message</h2>
+</header>
+
+<div class="row">
+<div class="col-md-12">
+<div class="panel view-compose-body">
+<div class="panel-body">
+<div class="form-group">
+<input class="form-control" id="to" placeholder="To:" type="email">
+<div class="send-options">
+<a href="javascript:void(0);" class="ccLink">Cc</a>
+<a href="javascript:void(0);" class="bccLink">Bcc</a>
+</div>
+</div>
+<div class="form-group" id="form-group-cc">
+<input class="form-control" id="cc" placeholder="Cc:" type="text">
+</div>
+<div class="form-group" id="form-group-bcc">
+<input class="form-control" id="bcc" placeholder="Bcc:" type="text">
+</div>
+<div class="form-group">
+<input class="form-control" id="subject" placeholder="Subject:" type="text">
+</div>
+
+<textarea class="textarea form-control" rows="5" cols="40" placeholder="Enter text ..." style="width: 100%; height: 200px"></textarea>
+</div>
+<div class="panel-footer">
+<button class="btn btn-sm btn-primary ">Send</button>
+<button class="btn btn-default btn-sm "><i class="fa fa-times"></i> Discard</button>
+<button class="btn btn-default btn-sm pull-right"><i class="fa fa-paperclip"></i> Attach a File</button>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+   </section>
+</section>

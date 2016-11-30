@@ -1,33 +1,3 @@
-                   Prefix Verb   URI Pattern                       Controller#Action
-        new_admin_session GET    /admins/sign_in(.:format)         devise/sessions#new
-            admin_session POST   /admins/sign_in(.:format)         devise/sessions#create
-    destroy_admin_session DELETE /admins/sign_out(.:format)        devise/sessions#destroy
-           admin_password POST   /admins/password(.:format)        devise/passwords#create
-       new_admin_password GET    /admins/password/new(.:format)    devise/passwords#new
-      edit_admin_password GET    /admins/password/edit(.:format)   devise/passwords#edit
-                          PATCH  /admins/password(.:format)        devise/passwords#update
-                          PUT    /admins/password(.:format)        devise/passwords#update
-cancel_admin_registration GET    /admins/cancel(.:format)          devise/registrations#cancel
-       admin_registration POST   /admins(.:format)                 devise/registrations#create
-   new_admin_registration GET    /admins/sign_up(.:format)         devise/registrations#new
-  edit_admin_registration GET    /admins/edit(.:format)            devise/registrations#edit
-                          PATCH  /admins(.:format)                 devise/registrations#update
-                          PUT    /admins(.:format)                 devise/registrations#update
-                          DELETE /admins(.:format)                 devise/registrations#destroy
-                     root GET    /                                 home#index
-        manage_user_homes GET    /homes/manage_user(.:format)      homes#manage_user
-     social_account_homes GET    /homes/social_account(.:format)   homes#social_account
-        reported_ad_homes GET    /homes/reported_ad(.:format)      homes#reported_ad
-       notification_homes GET    /homes/notification(.:format)     homes#notification
-          ad_review_homes GET    /homes/ad_review(.:format)        homes#ad_review
-   reported_ad_mail_homes GET    /homes/reported_ad_mail(.:format) homes#reported_ad_mail
-                    homes POST   /homes(.:format)                  homes#create
-                new_homes GET    /homes/new(.:format)              homes#new
-               edit_homes GET    /homes/edit(.:format)             homes#edit
-                          GET    /homes(.:format)                  homes#show
-                          PATCH  /homes(.:format)                  homes#update
-                          PUT    /homes(.:format)                  homes#update
-                          DELETE /homes(.:format)                  homes#destroy
                     Prefix Verb   URI Pattern                           Controller#Action
          new_admin_session GET    /admins/sign_in(.:format)             devise/sessions#new
              admin_session POST   /admins/sign_in(.:format)             devise/sessions#create
@@ -48,46 +18,7 @@ cancel_admin_registration GET    /admins/cancel(.:format)          devise/regist
         manage_user_admins GET    /admins/manage_user(.:format)         admins#manage_user
     social_accounts_admins GET    /admins/social_accounts(.:format)     admins#social_accounts
        reported_ads_admins GET    /admins/reported_ads(.:format)        admins#reported_ads
-       notification_admins GET    /admins/notification(.:format)        admins#notification
-          ad_review_admins GET    /admins/ad_review(.:format)           admins#ad_review
-   reported_ad_mail_admins GET    /admins/reported_ad_mail(.:format)    admins#reported_ad_mail
-                    admins POST   /admins(.:format)                     admins#create
-                new_admins GET    /admins/new(.:format)                 admins#new
-               edit_admins GET    /admins/edit(.:format)                admins#edit
-                           GET    /admins(.:format)                     admins#show
-                           PATCH  /admins(.:format)                     admins#update
-                           PUT    /admins(.:format)                     admins#update
-                           DELETE /admins(.:format)                     admins#destroy
-approve_ads_advertisements POST   /advertisements/approve_ads(.:format) advertisements#approve_ads
-decline_ads_advertisements POST   /advertisements/decline_ads(.:format) advertisements#decline_ads
-            advertisements POST   /advertisements(.:format)             advertisements#create
-        new_advertisements GET    /advertisements/new(.:format)         advertisements#new
-       edit_advertisements GET    /advertisements/edit(.:format)        advertisements#edit
-                           GET    /advertisements(.:format)             advertisements#show
-                           PATCH  /advertisements(.:format)             advertisements#update
-                           PUT    /advertisements(.:format)             advertisements#update
-                           DELETE /advertisements(.:format)             advertisements#destroy
-                    Prefix Verb   URI Pattern                           Controller#Action
-         new_admin_session GET    /admins/sign_in(.:format)             devise/sessions#new
-             admin_session POST   /admins/sign_in(.:format)             devise/sessions#create
-     destroy_admin_session DELETE /admins/sign_out(.:format)            devise/sessions#destroy
-            admin_password POST   /admins/password(.:format)            devise/passwords#create
-        new_admin_password GET    /admins/password/new(.:format)        devise/passwords#new
-       edit_admin_password GET    /admins/password/edit(.:format)       devise/passwords#edit
-                           PATCH  /admins/password(.:format)            devise/passwords#update
-                           PUT    /admins/password(.:format)            devise/passwords#update
- cancel_admin_registration GET    /admins/cancel(.:format)              devise/registrations#cancel
-        admin_registration POST   /admins(.:format)                     devise/registrations#create
-    new_admin_registration GET    /admins/sign_up(.:format)             devise/registrations#new
-   edit_admin_registration GET    /admins/edit(.:format)                devise/registrations#edit
-                           PATCH  /admins(.:format)                     devise/registrations#update
-                           PUT    /admins(.:format)                     devise/registrations#update
-                           DELETE /admins(.:format)                     devise/registrations#destroy
-                      root GET    /                                     home#index
-        manage_user_admins GET    /admins/manage_user(.:format)         admins#manage_user
-    social_accounts_admins GET    /admins/social_accounts(.:format)     admins#social_accounts
-       reported_ads_admins GET    /admins/reported_ads(.:format)        admins#reported_ads
-       notification_admins GET    /admins/notification(.:format)        admins#notification
+         newsletter_admins GET    /admins/newsletter(.:format)          admins#newsletter
           ad_review_admins GET    /admins/ad_review(.:format)           admins#ad_review
    reported_ad_mail_admins GET    /admins/reported_ad_mail(.:format)    admins#reported_ad_mail
  app_configurations_admins GET    /admins/app_configurations(.:format)  admins#app_configurations
@@ -107,46 +38,14 @@ decline_ads_advertisements POST   /advertisements/decline_ads(.:format) advertis
                            PATCH  /advertisements(.:format)             advertisements#update
                            PUT    /advertisements(.:format)             advertisements#update
                            DELETE /advertisements(.:format)             advertisements#destroy
-                    Prefix Verb   URI Pattern                           Controller#Action
-         new_admin_session GET    /admins/sign_in(.:format)             devise/sessions#new
-             admin_session POST   /admins/sign_in(.:format)             devise/sessions#create
-     destroy_admin_session DELETE /admins/sign_out(.:format)            devise/sessions#destroy
-            admin_password POST   /admins/password(.:format)            devise/passwords#create
-        new_admin_password GET    /admins/password/new(.:format)        devise/passwords#new
-       edit_admin_password GET    /admins/password/edit(.:format)       devise/passwords#edit
-                           PATCH  /admins/password(.:format)            devise/passwords#update
-                           PUT    /admins/password(.:format)            devise/passwords#update
- cancel_admin_registration GET    /admins/cancel(.:format)              devise/registrations#cancel
-        admin_registration POST   /admins(.:format)                     devise/registrations#create
-    new_admin_registration GET    /admins/sign_up(.:format)             devise/registrations#new
-   edit_admin_registration GET    /admins/edit(.:format)                devise/registrations#edit
-                           PATCH  /admins(.:format)                     devise/registrations#update
-                           PUT    /admins(.:format)                     devise/registrations#update
-                           DELETE /admins(.:format)                     devise/registrations#destroy
-                      root GET    /                                     home#index
-        manage_user_admins GET    /admins/manage_user(.:format)         admins#manage_user
-    social_accounts_admins GET    /admins/social_accounts(.:format)     admins#social_accounts
-       reported_ads_admins GET    /admins/reported_ads(.:format)        admins#reported_ads
-       notification_admins GET    /admins/notification(.:format)        admins#notification
-          ad_review_admins GET    /admins/ad_review(.:format)           admins#ad_review
-   reported_ad_mail_admins GET    /admins/reported_ad_mail(.:format)    admins#reported_ad_mail
- app_configurations_admins GET    /admins/app_configurations(.:format)  admins#app_configurations
-                    admins POST   /admins(.:format)                     admins#create
-                new_admins GET    /admins/new(.:format)                 admins#new
-               edit_admins GET    /admins/edit(.:format)                admins#edit
-                           GET    /admins(.:format)                     admins#show
-                           PATCH  /admins(.:format)                     admins#update
-                           PUT    /admins(.:format)                     admins#update
-                           DELETE /admins(.:format)                     admins#destroy
-approve_ads_advertisements POST   /advertisements/approve_ads(.:format) advertisements#approve_ads
-decline_ads_advertisements POST   /advertisements/decline_ads(.:format) advertisements#decline_ads
-            advertisements POST   /advertisements(.:format)             advertisements#create
-        new_advertisements GET    /advertisements/new(.:format)         advertisements#new
-       edit_advertisements GET    /advertisements/edit(.:format)        advertisements#edit
-                           GET    /advertisements(.:format)             advertisements#show
-                           PATCH  /advertisements(.:format)             advertisements#update
-                           PUT    /advertisements(.:format)             advertisements#update
-                           DELETE /advertisements(.:format)             advertisements#destroy
+               newsletters GET    /newsletters(.:format)                newsletters#index
+                           POST   /newsletters(.:format)                newsletters#create
+            new_newsletter GET    /newsletters/new(.:format)            newsletters#new
+           edit_newsletter GET    /newsletters/:id/edit(.:format)       newsletters#edit
+                newsletter GET    /newsletters/:id(.:format)            newsletters#show
+                           PATCH  /newsletters/:id(.:format)            newsletters#update
+                           PUT    /newsletters/:id(.:format)            newsletters#update
+                           DELETE /newsletters/:id(.:format)            newsletters#destroy
         app_configurations POST   /app_configurations(.:format)         app_configurations#create
     new_app_configurations GET    /app_configurations/new(.:format)     app_configurations#new
    edit_app_configurations GET    /app_configurations/edit(.:format)    app_configurations#edit
@@ -154,3 +53,171 @@ decline_ads_advertisements POST   /advertisements/decline_ads(.:format) advertis
                            PATCH  /app_configurations(.:format)         app_configurations#update
                            PUT    /app_configurations(.:format)         app_configurations#update
                            DELETE /app_configurations(.:format)         app_configurations#destroy
+                            Prefix Verb   URI Pattern                                                    Controller#Action
+                 new_admin_session GET    /admins/sign_in(.:format)                                      devise/sessions#new
+                     admin_session POST   /admins/sign_in(.:format)                                      devise/sessions#create
+             destroy_admin_session DELETE /admins/sign_out(.:format)                                     devise/sessions#destroy
+                    admin_password POST   /admins/password(.:format)                                     devise/passwords#create
+                new_admin_password GET    /admins/password/new(.:format)                                 devise/passwords#new
+               edit_admin_password GET    /admins/password/edit(.:format)                                devise/passwords#edit
+                                   PATCH  /admins/password(.:format)                                     devise/passwords#update
+                                   PUT    /admins/password(.:format)                                     devise/passwords#update
+         cancel_admin_registration GET    /admins/cancel(.:format)                                       devise/registrations#cancel
+                admin_registration POST   /admins(.:format)                                              devise/registrations#create
+            new_admin_registration GET    /admins/sign_up(.:format)                                      devise/registrations#new
+           edit_admin_registration GET    /admins/edit(.:format)                                         devise/registrations#edit
+                                   PATCH  /admins(.:format)                                              devise/registrations#update
+                                   PUT    /admins(.:format)                                              devise/registrations#update
+                                   DELETE /admins(.:format)                                              devise/registrations#destroy
+                              root GET    /                                                              home#index
+                manage_user_admins GET    /admins/manage_user(.:format)                                  admins#manage_user
+            social_accounts_admins GET    /admins/social_accounts(.:format)                              admins#social_accounts
+               reported_ads_admins GET    /admins/reported_ads(.:format)                                 admins#reported_ads
+                 newsletter_admins GET    /admins/newsletter(.:format)                                   admins#newsletter
+                  ad_review_admins GET    /admins/ad_review(.:format)                                    admins#ad_review
+           reported_ad_mail_admins GET    /admins/reported_ad_mail(.:format)                             admins#reported_ad_mail
+         app_configurations_admins GET    /admins/app_configurations(.:format)                           admins#app_configurations
+                            admins POST   /admins(.:format)                                              admins#create
+                        new_admins GET    /admins/new(.:format)                                          admins#new
+                       edit_admins GET    /admins/edit(.:format)                                         admins#edit
+                                   GET    /admins(.:format)                                              admins#show
+                                   PATCH  /admins(.:format)                                              admins#update
+                                   PUT    /admins(.:format)                                              admins#update
+                                   DELETE /admins(.:format)                                              admins#destroy
+        approve_ads_advertisements POST   /advertisements/approve_ads(.:format)                          advertisements#approve_ads
+        decline_ads_advertisements POST   /advertisements/decline_ads(.:format)                          advertisements#decline_ads
+                    advertisements POST   /advertisements(.:format)                                      advertisements#create
+                new_advertisements GET    /advertisements/new(.:format)                                  advertisements#new
+               edit_advertisements GET    /advertisements/edit(.:format)                                 advertisements#edit
+                                   GET    /advertisements(.:format)                                      advertisements#show
+                                   PATCH  /advertisements(.:format)                                      advertisements#update
+                                   PUT    /advertisements(.:format)                                      advertisements#update
+                                   DELETE /advertisements(.:format)                                      advertisements#destroy
+news_letter_filters_for_newsletter GET    /news_letters/:news_letter_id/filters_for_newsletter(.:format) news_letters#filters_for_newsletter
+                      news_letters GET    /news_letters(.:format)                                        news_letters#index
+                                   POST   /news_letters(.:format)                                        news_letters#create
+                   new_news_letter GET    /news_letters/new(.:format)                                    news_letters#new
+                  edit_news_letter GET    /news_letters/:id/edit(.:format)                               news_letters#edit
+                       news_letter GET    /news_letters/:id(.:format)                                    news_letters#show
+                                   PATCH  /news_letters/:id(.:format)                                    news_letters#update
+                                   PUT    /news_letters/:id(.:format)                                    news_letters#update
+                                   DELETE /news_letters/:id(.:format)                                    news_letters#destroy
+                app_configurations POST   /app_configurations(.:format)                                  app_configurations#create
+            new_app_configurations GET    /app_configurations/new(.:format)                              app_configurations#new
+           edit_app_configurations GET    /app_configurations/edit(.:format)                             app_configurations#edit
+                                   GET    /app_configurations(.:format)                                  app_configurations#show
+                                   PATCH  /app_configurations(.:format)                                  app_configurations#update
+                                   PUT    /app_configurations(.:format)                                  app_configurations#update
+                                   DELETE /app_configurations(.:format)                                  app_configurations#destroy
+                             Prefix Verb   URI Pattern                                    Controller#Action
+                  new_admin_session GET    /admins/sign_in(.:format)                      devise/sessions#new
+                      admin_session POST   /admins/sign_in(.:format)                      devise/sessions#create
+              destroy_admin_session DELETE /admins/sign_out(.:format)                     devise/sessions#destroy
+                     admin_password POST   /admins/password(.:format)                     devise/passwords#create
+                 new_admin_password GET    /admins/password/new(.:format)                 devise/passwords#new
+                edit_admin_password GET    /admins/password/edit(.:format)                devise/passwords#edit
+                                    PATCH  /admins/password(.:format)                     devise/passwords#update
+                                    PUT    /admins/password(.:format)                     devise/passwords#update
+          cancel_admin_registration GET    /admins/cancel(.:format)                       devise/registrations#cancel
+                 admin_registration POST   /admins(.:format)                              devise/registrations#create
+             new_admin_registration GET    /admins/sign_up(.:format)                      devise/registrations#new
+            edit_admin_registration GET    /admins/edit(.:format)                         devise/registrations#edit
+                                    PATCH  /admins(.:format)                              devise/registrations#update
+                                    PUT    /admins(.:format)                              devise/registrations#update
+                                    DELETE /admins(.:format)                              devise/registrations#destroy
+                               root GET    /                                              home#index
+                 manage_user_admins GET    /admins/manage_user(.:format)                  admins#manage_user
+             social_accounts_admins GET    /admins/social_accounts(.:format)              admins#social_accounts
+                reported_ads_admins GET    /admins/reported_ads(.:format)                 admins#reported_ads
+                  newsletter_admins GET    /admins/newsletter(.:format)                   admins#newsletter
+                   ad_review_admins GET    /admins/ad_review(.:format)                    admins#ad_review
+            reported_ad_mail_admins GET    /admins/reported_ad_mail(.:format)             admins#reported_ad_mail
+          app_configurations_admins GET    /admins/app_configurations(.:format)           admins#app_configurations
+                             admins POST   /admins(.:format)                              admins#create
+                         new_admins GET    /admins/new(.:format)                          admins#new
+                        edit_admins GET    /admins/edit(.:format)                         admins#edit
+                                    GET    /admins(.:format)                              admins#show
+                                    PATCH  /admins(.:format)                              admins#update
+                                    PUT    /admins(.:format)                              admins#update
+                                    DELETE /admins(.:format)                              admins#destroy
+         approve_ads_advertisements POST   /advertisements/approve_ads(.:format)          advertisements#approve_ads
+         decline_ads_advertisements POST   /advertisements/decline_ads(.:format)          advertisements#decline_ads
+                     advertisements POST   /advertisements(.:format)                      advertisements#create
+                 new_advertisements GET    /advertisements/new(.:format)                  advertisements#new
+                edit_advertisements GET    /advertisements/edit(.:format)                 advertisements#edit
+                                    GET    /advertisements(.:format)                      advertisements#show
+                                    PATCH  /advertisements(.:format)                      advertisements#update
+                                    PUT    /advertisements(.:format)                      advertisements#update
+                                    DELETE /advertisements(.:format)                      advertisements#destroy
+filters_for_newsletter_news_letters GET    /news_letters/filters_for_newsletter(.:format) news_letters#filters_for_newsletter
+                       news_letters GET    /news_letters(.:format)                        news_letters#index
+                                    POST   /news_letters(.:format)                        news_letters#create
+                    new_news_letter GET    /news_letters/new(.:format)                    news_letters#new
+                   edit_news_letter GET    /news_letters/:id/edit(.:format)               news_letters#edit
+                        news_letter GET    /news_letters/:id(.:format)                    news_letters#show
+                                    PATCH  /news_letters/:id(.:format)                    news_letters#update
+                                    PUT    /news_letters/:id(.:format)                    news_letters#update
+                                    DELETE /news_letters/:id(.:format)                    news_letters#destroy
+                 app_configurations POST   /app_configurations(.:format)                  app_configurations#create
+             new_app_configurations GET    /app_configurations/new(.:format)              app_configurations#new
+            edit_app_configurations GET    /app_configurations/edit(.:format)             app_configurations#edit
+                                    GET    /app_configurations(.:format)                  app_configurations#show
+                                    PATCH  /app_configurations(.:format)                  app_configurations#update
+                                    PUT    /app_configurations(.:format)                  app_configurations#update
+                                    DELETE /app_configurations(.:format)                  app_configurations#destroy
+                             Prefix Verb   URI Pattern                                    Controller#Action
+                  new_admin_session GET    /admins/sign_in(.:format)                      devise/sessions#new
+                      admin_session POST   /admins/sign_in(.:format)                      devise/sessions#create
+              destroy_admin_session DELETE /admins/sign_out(.:format)                     devise/sessions#destroy
+                     admin_password POST   /admins/password(.:format)                     devise/passwords#create
+                 new_admin_password GET    /admins/password/new(.:format)                 devise/passwords#new
+                edit_admin_password GET    /admins/password/edit(.:format)                devise/passwords#edit
+                                    PATCH  /admins/password(.:format)                     devise/passwords#update
+                                    PUT    /admins/password(.:format)                     devise/passwords#update
+          cancel_admin_registration GET    /admins/cancel(.:format)                       devise/registrations#cancel
+                 admin_registration POST   /admins(.:format)                              devise/registrations#create
+             new_admin_registration GET    /admins/sign_up(.:format)                      devise/registrations#new
+            edit_admin_registration GET    /admins/edit(.:format)                         devise/registrations#edit
+                                    PATCH  /admins(.:format)                              devise/registrations#update
+                                    PUT    /admins(.:format)                              devise/registrations#update
+                                    DELETE /admins(.:format)                              devise/registrations#destroy
+                               root GET    /                                              home#index
+                 manage_user_admins GET    /admins/manage_user(.:format)                  admins#manage_user
+             social_accounts_admins GET    /admins/social_accounts(.:format)              admins#social_accounts
+                reported_ads_admins GET    /admins/reported_ads(.:format)                 admins#reported_ads
+                  newsletter_admins GET    /admins/newsletter(.:format)                   admins#newsletter
+                   ad_review_admins GET    /admins/ad_review(.:format)                    admins#ad_review
+            reported_ad_mail_admins GET    /admins/reported_ad_mail(.:format)             admins#reported_ad_mail
+          app_configurations_admins GET    /admins/app_configurations(.:format)           admins#app_configurations
+                             admins POST   /admins(.:format)                              admins#create
+                         new_admins GET    /admins/new(.:format)                          admins#new
+                        edit_admins GET    /admins/edit(.:format)                         admins#edit
+                                    GET    /admins(.:format)                              admins#show
+                                    PATCH  /admins(.:format)                              admins#update
+                                    PUT    /admins(.:format)                              admins#update
+                                    DELETE /admins(.:format)                              admins#destroy
+         approve_ads_advertisements POST   /advertisements/approve_ads(.:format)          advertisements#approve_ads
+         decline_ads_advertisements POST   /advertisements/decline_ads(.:format)          advertisements#decline_ads
+                     advertisements POST   /advertisements(.:format)                      advertisements#create
+                 new_advertisements GET    /advertisements/new(.:format)                  advertisements#new
+                edit_advertisements GET    /advertisements/edit(.:format)                 advertisements#edit
+                                    GET    /advertisements(.:format)                      advertisements#show
+                                    PATCH  /advertisements(.:format)                      advertisements#update
+                                    PUT    /advertisements(.:format)                      advertisements#update
+                                    DELETE /advertisements(.:format)                      advertisements#destroy
+filters_for_newsletter_news_letters GET    /news_letters/filters_for_newsletter(.:format) news_letters#filters_for_newsletter
+                       news_letters GET    /news_letters(.:format)                        news_letters#index
+                                    POST   /news_letters(.:format)                        news_letters#create
+                    new_news_letter GET    /news_letters/new(.:format)                    news_letters#new
+                   edit_news_letter GET    /news_letters/:id/edit(.:format)               news_letters#edit
+                        news_letter GET    /news_letters/:id(.:format)                    news_letters#show
+                                    PATCH  /news_letters/:id(.:format)                    news_letters#update
+                                    PUT    /news_letters/:id(.:format)                    news_letters#update
+                                    DELETE /news_letters/:id(.:format)                    news_letters#destroy
+                 app_configurations POST   /app_configurations(.:format)                  app_configurations#create
+             new_app_configurations GET    /app_configurations/new(.:format)              app_configurations#new
+            edit_app_configurations GET    /app_configurations/edit(.:format)             app_configurations#edit
+                                    GET    /app_configurations(.:format)                  app_configurations#show
+                                    PATCH  /app_configurations(.:format)                  app_configurations#update
+                                    PUT    /app_configurations(.:format)                  app_configurations#update
+                                    DELETE /app_configurations(.:format)                  app_configurations#destroy

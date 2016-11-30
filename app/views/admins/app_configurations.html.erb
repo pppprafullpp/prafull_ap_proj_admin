@@ -21,7 +21,7 @@
 
                      <div class="row">
                        <div class="col-md-4">
-                         Update Social Data in
+                         Update Social Data in <span title="hours in which data from facebook will be pulled" class="fa fa-question-circle"></span>
                        </div>
                        <div class="col-md-4">
                          <table style="width:100%">
@@ -33,6 +33,22 @@
                        </div>
                        <div class="col-md-4">
                          <input type="button" class="btn btn-primary" onclick="update_app_configurations($('#update_social_data_value').val(),1)" value="Update">
+                       </div>
+                     </div>
+
+                     <div class="row">
+                       <div class="col-md-4">
+                         Facebook Access token <span title="the authorization token from facebook" class="fa fa-question-circle"></span>
+                       </div>
+                       <div class="col-md-4">
+                         <table style="width:100%">
+                           <tr>
+                             <td><input type="text" id="update_fb_access_token"  value="<%=@facebook_token%>" class="form-control" /></td>
+                            </tr>
+                         </table>
+                       </div>
+                       <div class="col-md-4">
+                         <input type="button" class="btn btn-primary" onclick="update_app_configurations($('#update_fb_access_token').val(),2)" value="Update">
                        </div>
                      </div>
 
@@ -50,6 +66,9 @@ function update_app_configurations(data,type){
     config_key = "update_social_data",
     config_value = data;
     break;
+    case 2: config_key = "facebook_access_token",
+    config_value = data;
+    config_value = data;
   }
   response = make_changes_in_app_configurations(config_key,config_value)
   if( response["success"] == true) {
