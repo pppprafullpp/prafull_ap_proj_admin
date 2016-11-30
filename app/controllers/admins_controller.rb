@@ -13,8 +13,8 @@ class AdminsController < ApplicationController
     @breadcrumb = {'Dashboard' => root_url, 'Reported Ads' => ''}
   end
 
-  def notification
-    @breadcrumb = {'Dashboard' => root_url, 'Notification' => ''}
+  def newsletter
+  
   end
 
   def social_accounts
@@ -26,6 +26,7 @@ class AdminsController < ApplicationController
     @breadcrumb = {'Dashboard' => root_url, 'App configurations' => ''}
     @app_configurations = AppConfiguration.all
     @update_social_data = AppConfiguration.find_by(:config_key=>"update_social_data").config_value
+    @facebook_token = AppConfiguration.find_by(:config_key=>"facebook_access_token").config_value
   end
 
 end

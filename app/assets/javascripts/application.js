@@ -16,9 +16,6 @@
 //= require toastr
 //= require_tree .
 
-$(function(){
-  $("a[rel='tooltip']").tooltip();
-})
 
 	 toastr.options = {
 	                  "closeButton": false,
@@ -48,7 +45,7 @@ var app = function() {
     };
 
     var tooltips = function() {
-        $('#toggle-left').tooltip();
+        // $('#toggle-left').tooltip();
     };
 
     var togglePanel = function() {

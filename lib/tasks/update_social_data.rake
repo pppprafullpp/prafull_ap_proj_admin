@@ -3,10 +3,11 @@ require "fb_graph2"
 namespace :update_social_data do
     task :update_facebook_likes => :environment do |t,token|
       puts DateTime.now
+      token = AppConfiguration.find_by(:config_key=>"facebook_access_token").config_value
       social_accounts = SocialAccount.all
         social_accounts.each do |social_account|
           page = FbGraph2::Page.new(social_account.platform_type_id).fetch(
-                :access_token => "986978254757512|vGvEynp44LE_I_yG6dgAsjlF770",
+                :access_token => token,
                 :fields => [:fan_count, :about,:picture,:location,:category]
                 )
                 puts "Updated:#{social_account.platform_type_id} with #{page.raw_attributes['fan_count'].to_s} likes"
@@ -21,5 +22,7 @@ namespace :update_social_data do
 )
           end
           puts "--------------------------------------------------------------------------------------"
+          NotificationMailer.send_mail_after_social_data_update.deliver!
       end
+
     end

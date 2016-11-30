@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+    AppConfiguration.create!(:config_key=>"facebook_access_token",:config_value=>"986978254757512|vGvEynp44LE_I_yG6dgAsjlF770")
+     
