@@ -7,4 +7,7 @@ class Advertiser < ActiveRecord::Base
 
 # CITIES =[""]
 
+  def self.reset_password
+  end
+  
 end

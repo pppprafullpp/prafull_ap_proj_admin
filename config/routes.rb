@@ -7,13 +7,15 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resource :admins do
-    get :manage_user
+    get :manage_influencer
+    get :manage_advertiser
     get :social_accounts
     get :reported_ads
     get :newsletter
     get :ad_review
     get :reported_ad_mail
     get :app_configurations
+    post :reset_password
   end
 
   resource :advertisements do
