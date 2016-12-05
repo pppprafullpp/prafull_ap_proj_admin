@@ -1,0 +1,75 @@
+<%=render :partial=>"layouts/header"%>
+<%=render :partial=>"layouts/left_panel"%>
+<section class="main-content-wrapper column">
+    <section id="main-content">
+         <div class="row">
+            <div class="col-md-12">
+                <%= render :partial => "layouts/breadcrumb", :locals => {:breadcrumb => @breadcrumb}%>
+            </div>
+        </div>
+
+      <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Manage Advertiser List</h3>
+                    <div class="actions pull-right">
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+
+
+                    <table id="example" class="table table-striped" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Total Advertisements created</th>
+                            <th>facebook_page_id</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <%@advertisers.each do |advertiser|%>
+                        <tr>
+                            <td><%=advertiser.name%></td>
+                            <td><%=Advertisement.get_advertisement_count_of_particular_advertiser(advertiser.id) %></td>
+                            <td><%= %></td>
+                            <td>
+                              <a href="#" class="green"><i class="fa fa-edit" title="Edit"></i></a>
+                              <a href="#" class="red"><i class="fa fa-trash" title="Delete"></i></a>
+                              <a href="<%=reset_password_admins_path(type:'advertiser',id:advertiser.id)%>" data-method="post" data-remote="true" onclick="show_success_message('password_reset')" class="green"><i class="fa fa-refresh" title="reset password"></i></a>
+                            </td>
+                        </tr>
+                        <%end%>
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <!-- <div class="row">
+                  <div class="col-xs-6">
+                      <div class="dataTables_info" id="">Showing 1 to 10 of 57 entries</div>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="dataTables_paginate paging_bootstrap pull-right">
+                        <ul class="pagination">
+                              <li class="prev disabled"><a href="#">← Previous</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li class="next"><a href="#">Next → </a></li>
+                          </ul>
+                        </div>
+                    </div>
+                </div> -->
+                <%=will_paginate @advertisers%>
+
+               </div>
+             </div>
+        </div>
+    </div>
+
+    </section>
+ </section>
