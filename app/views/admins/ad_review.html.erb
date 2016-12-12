@@ -40,6 +40,8 @@
                        <tr>
                            <th>Ad Preview</th>
                            <th>Category</th>
+                           <th>Influencer Name</th>
+                           <th>Influencer Email</th>
                            <th>Link Share</th>
                            <th>Current Status</th>
                            <th>Action</th>
@@ -50,12 +52,18 @@
                      <%@advertisements.each do |advertisement|%>
                        <tr>
                            <td><img src="<%=advertisement.ad_image_url%>" alt="Ad Preview" class="img-thumb"></td>
-                           <td><%=Category.find(advertisement.category).name%></td>
-                           <td><a href="http://facebook.com/"><%=advertisement.url%></a></td>
-                           <td><%=Advertisement::STATUS.key (advertisement.status)%> </td>
+                           <td><%= Category.find(advertisement.category).name %></td>
+                           <td><%= Influencer.find(advertisement.influencer_id).name %></td>
+                           <td><%= Influencer.find(advertisement.influencer_id).email %></td>
+                           <td><a href="http://facebook.com/"><%=advertisement.url %></a></td>
+                           <td><%= Advertisement::STATUS.key (advertisement.status )%> </td>
                            <td>
-                             <%if advertisement.status == Advertisement::STATUS["Published by influencer"]%>
+                             <%if advertisement.status == Advertisement::STATUS["Published by influencer"] %>
                               <p>Published</p>
+                                <%elsif advertisement.status == Advertisement::STATUS["Declined by influencer"]%>
+                              <p>Declined by influencer</p>
+                                <%elsif advertisement.status == approved_by_admin%>
+                              <p>Approved by you(Admin)</p>
                              <%else%>
                              <a href=" <%=approve_ads_advertisements_path(id:advertisement.id)%>" data-method="post" class="btn btn-success btn-xs">Approve</a>
                              <a href=" <%=decline_ads_advertisements_path(id:advertisement.id)%>" data-method="post" class="btn btn-danger btn-xs">Decline</a>
