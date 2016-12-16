@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :declined_by_influencer, :approved_by_admin
-  
+  helper_method :declined_by_influencer, :approved_by_admin, :get_notifications
+
   def declined_by_influencer
     value = Advertisement::STATUS["Declined by influencer"]
     value
@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
   def approved_by_admin
     value = Advertisement::STATUS["Approved by Admin"]
     value
+  end
+
+  def get_notifications
+    notifications = Notification.where(:viewed=>false).order("Id DESC").pluck(:activity_type,:activity)
+    notifications
   end
 
 

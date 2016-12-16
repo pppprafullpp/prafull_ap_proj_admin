@@ -1,5 +1,7 @@
 class AdminsController < ApplicationController
 
+  before_filter :verify_authenticity_token, :except=> [:get_notifications]
+
   def manage_influencer
     @influencers = Influencer.all.paginate(:page => params[:page],:per_page => 10)
     @breadcrumb = {'Dashboard' => root_url, 'Manager Influencer' => ''}
@@ -43,4 +45,5 @@ class AdminsController < ApplicationController
       success:true
     }
   end
+
 end

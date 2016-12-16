@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get :reported_ad_mail
     get :app_configurations
     post :reset_password
+    post :get_notifications
   end
 
   resource :advertisements do
@@ -30,6 +31,9 @@ Rails.application.routes.draw do
 
   end
   resource :app_configurations
+
+  resources :influencers
+  resources :advertisers
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
