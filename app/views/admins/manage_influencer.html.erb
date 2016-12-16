@@ -33,13 +33,16 @@
                     </thead>
                     <tbody>
                       <%@influencers.each do |influencer|%>
-                        <tr>
+                        <tr id="row_<%=influencer.id%>">
                             <td><%=influencer.name%></td>
                             <td><%=influencer.email%></td>
                             <td><%=influencer.social_account.facebook_page_count rescue nil%></td>
                             <td><%=influencer.social_account.platform_type_id rescue nil%></td>
                             <td><%=influencer.publishing_price.present? ? "$ "+influencer.publishing_price : "Not provided" %></td>
-                            <td><a href="#" class="green"><i class="fa fa-edit" title="Edit"></i></a> <a href="#" class="red"><i class="fa fa-trash" title="Delete"></i></a></td>
+                            <td>
+                              <!-- <a href="#" class="green"><i class="fa fa-edit" title="Edit"></i></a> -->
+                              <a href="#" onclick="delete_influencer(<%=influencer.id%>)" class="red"><i class="fa fa-trash" title="Delete"></i></a>
+                            </td>
                         </tr>
                         <%end%>
                     </tbody>
@@ -73,3 +76,18 @@
 
     </section>
  </section>
+<script>
+function delete_influencer(influencer_id){
+  event.preventDefault();
+  $.ajax({
+    url:  "/influencers/"+influencer_id,
+    type: "DELETE",
+    success: function (response){
+      if(response["success"] == true){
+        toastr.success("Successfully Deleted");
+        $("#row_"+influencer_id).hide(500);
+      }
+    }
+  })
+}
+</script>

@@ -9,7 +9,6 @@ class HomeController < ApplicationController
       # render :text => "Unauthorized"
       redirect_to "/unauthorized"
     end
-
   end
 
 end
