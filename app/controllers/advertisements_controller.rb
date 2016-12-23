@@ -7,7 +7,7 @@ class AdvertisementsController < ApplicationController
     PendingNotification.create!(
       influencer_id:advertisement.influencer_id,
       advertiser_id:advertisement.advertiser_id,
-      notification_type:Advertisement::STATUS.key("Approved by Admin"),
+      notification_type:Advertisement::STATUS["Approved by Admin"],
       notification_text:Advertisement::STATUS_TEXT[Advertisement::STATUS["Approved by Admin"]-1],
       advertisement_id:advertisement.id,
       :viewed=>false)
