@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212093221) do
+ActiveRecord::Schema.define(version: 20161222162139) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -177,12 +177,40 @@ ActiveRecord::Schema.define(version: 20161212093221) do
   add_index "influencers", ["email"], name: "index_influencers_on_email", unique: true, using: :btree
   add_index "influencers", ["reset_password_token"], name: "index_influencers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "messages", force: :cascade do |t|
+    t.string   "message_from_type", limit: 255
+    t.string   "message_to_type",   limit: 255
+    t.integer  "message_from_id",   limit: 4
+    t.integer  "message_to_id",     limit: 4
+    t.text     "message",           limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
   create_table "names", force: :cascade do |t|
     t.integer  "category_id",   limit: 4
     t.integer  "influencer_id", limit: 4
     t.integer  "advertiser_id", limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.text     "activity_type", limit: 65535
+    t.text     "activity",      limit: 65535
+    t.boolean  "viewed"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "pending_notifications", force: :cascade do |t|
+    t.integer  "notification_type", limit: 4
+    t.integer  "influencer_id",     limit: 4
+    t.integer  "advertiser_id",     limit: 4
+    t.text     "notification_text", limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "viewed"
   end
 
   create_table "roles", force: :cascade do |t|

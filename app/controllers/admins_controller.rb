@@ -14,8 +14,10 @@ class AdminsController < ApplicationController
 
 
   def ad_review
+    # raise params.to_yaml
+    params[:search] = {} unless params[:search].present?
     @breadcrumb = {'Dashboard' => root_url, 'Ad Review' => ''}
-    @advertisements = Advertisement.all.order("Id DESC").paginate(:page=>params[:page],:per_page=>10)
+    @advertisements = Advertisement.search(params[:search]).order("Id DESC").paginate(:page=>params[:page],:per_page=>10)
   end
 
   def reported_ads
