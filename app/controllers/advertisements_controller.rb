@@ -1,5 +1,10 @@
 class AdvertisementsController < ApplicationController
   # STATUS =  {"Initiated" => 1,"Approved by Admin" => 2,"Approved by influencer" => 3,"Declined by Admin" => 4, "Declined by influencer"=>5,"Published by influencer"=>6}
+   def show
+     @advertisement = Advertisement.find(params[:id])
+     @breadcrumb = {'Dashboard' => root_url,'Reported Ads' => '/admins/reported_ads','Advertisement Details' => ''}
+     @ad_history_data = PendingNotification.where(:advertisement_id=>params[:id]).order("ID DESC")
+   end
 
    def approve_ads
      advertisement = Advertisement.find(params[:id])

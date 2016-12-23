@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     post :get_notifications
   end
 
-  resource :advertisements do
+  resources :advertisements do
     post :approve_ads
     post :decline_ads
   end

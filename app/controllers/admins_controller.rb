@@ -22,6 +22,7 @@ class AdminsController < ApplicationController
 
   def reported_ads
     @breadcrumb = {'Dashboard' => root_url, 'Reported Ads' => ''}
+    @reported_ads = Advertisement.where("status in (?)",[4,5]).order("ID DESC").paginate(:page=>params[:page],:per_page=>10)
   end
 
   def newsletter
