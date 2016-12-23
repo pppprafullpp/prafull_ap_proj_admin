@@ -500,7 +500,7 @@ img {
   background: #AAA;
 }
 /* ==========================================================================
-   Main Content
+   Main Content 
    ========================================================================== */
 .main-content-wrapper {
   margin-left: 240px;
@@ -2135,8 +2135,8 @@ fieldset[disabled] .btn-warning.active {
   left: 27px;
   top: 11px;
 }
-#login-wrapper #admin_email,
-#login-wrapper #admin_password {
+#login-wrapper #email,
+#login-wrapper #password {
   padding-left: 32px;
 }
 /* ==========================================================================
@@ -2587,8 +2587,8 @@ margin-left: -5px;
 }
 #leftside-navigation ul.nano-content ul.list-inline li{
     background: none;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0; 
+    padding-right: 0; 
 }
 #leftside-navigation ul.nano-content ul.list-inline li a i{
     width: inherit;
@@ -2602,7 +2602,7 @@ padding: 5px 0 5px 5px;
 }
 
 .nano-content .user-panel .info .list-inline .i {
-min-width: 14px;
+min-width: 14px;  
 }
 
 

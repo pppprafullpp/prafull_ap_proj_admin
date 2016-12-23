@@ -8,7 +8,88 @@
              <h1 class="h1"><i class="fa fa-pencil-square-o"></i> Ad Review</h1>
             </div>
        </div>
+       <div class="row">
+       <div class="col-md-12">
+       <div class="borderBox">
+       <div class="row">
+       <%=form_for :search,:url=>ad_review_admins_path, :method=>"get" do |f|%>
 
+       <div class="col-md-3">
+       <div class="form-group">
+       <label class="" for="">Influencer</label>
+       <%=select_tag(:influencer_id,options_for_select(Influencer.all.collect{ |u| ["#{u.name}(#{u.email})",u.id]},params[:search][:influencer_id]),{:include_blank=>"Select Influencer",:class=>"form-control",:name=>"search[influencer_id]"})%>
+       </div>
+       </div>
+
+       <div class="col-md-3">
+       <div class="form-group">
+       <label class="" for="">Advertiser</label>
+       <%=select_tag(:advertiser_id,options_for_select(Advertiser.all.collect{ |u| ["#{u.name}(#{u.email})"]},params[:search][:advertiser_id]),{:include_blank=>"Select Advertiser",:class=>"form-control",:name=>"search[advertiser_id]"})%>
+       </div>
+       </div>
+
+       <div class="col-md-3">
+       <div class="form-group">
+         <label class="" for="">Category</label>
+         <%=f.select(:category,options_for_select(Category.pluck(:name),params[:search][:category]),{},:class=>"form-control", :name=>"search[category]")%>
+         </div>
+       </div>
+
+       <div class="col-md-3">
+       <div class="form-group">
+
+       <label class="" for="">status</label>
+       <%=select_tag(:advertisement_status,options_for_select(Advertisement::STATUS,params[:search][:advertisement_status]),{:include_blank=>"AD STATUS",:class=>"form-control",:name=>"search[advertisement_status]"})%>
+          </div>
+       </div>
+
+       <div class="col-md-3">
+         <button type="submit" class="btn btn-primary mgTop30" style="margin-top: 9%">Search</button>
+         <a href="/admins/ad_review" class="btn btn-primary mgTop30" style="margin-top: 9%">Clear<a>
+       </div>
+
+       <%end%>
+
+       </div>
+
+       <div class="row">
+       <div class="col-md-12">
+       <div class="pull-left">Search By:</div>
+       <div class="btn-toolbar">
+       <div class="btn-group btn-group-sm">
+       <a href="<%=news_letters_path(alphabet:'a')%>" class="btn btn-default">A</a>
+       <a href="<%=news_letters_path(alphabet:'b')%>" class="btn btn-default">B</a>
+       <a href="<%=news_letters_path(alphabet:'c')%>" class="btn btn-default">C</a>
+       <a href="<%=news_letters_path(alphabet:'d')%>" class="btn btn-default">D</a>
+       <a href="<%=news_letters_path(alphabet:'e')%>" class="btn btn-default">E</a>
+       <a href="<%=news_letters_path(alphabet:'f')%>" class="btn btn-default">F</a>
+       <a href="<%=news_letters_path(alphabet:'g')%>" class="btn btn-default">G</a>
+       <a href="<%=news_letters_path(alphabet:'h')%>" class="btn btn-default">H</a>
+       <a href="<%=news_letters_path(alphabet:'i')%>" class="btn btn-default">I</a>
+       <a href="<%=news_letters_path(alphabet:'j')%>" class="btn btn-default">J</a>
+       <a href="<%=news_letters_path(alphabet:'k')%>" class="btn btn-default">K</a>
+       <a href="<%=news_letters_path(alphabet:'l')%>" class="btn btn-default">L</a>
+       <a href="<%=news_letters_path(alphabet:'m')%>" class="btn btn-default">M</a>
+       <a href="<%=news_letters_path(alphabet:'n')%>" class="btn btn-default">N</a>
+       <a href="<%=news_letters_path(alphabet:'o')%>" class="btn btn-default">O</a>
+       <a href="<%=news_letters_path(alphabet:'p')%>" class="btn btn-default">P</a>
+       <a href="<%=news_letters_path(alphabet:'q')%>" class="btn btn-default">Q</a>
+       <a href="<%=news_letters_path(alphabet:'r')%>" class="btn btn-default">R</a>
+       <a href="<%=news_letters_path(alphabet:'s')%>" class="btn btn-default">S</a>
+       <a href="<%=news_letters_path(alphabet:'t')%>" class="btn btn-default">T</a>
+       <a href="<%=news_letters_path(alphabet:'u')%>" class="btn btn-default">U</a>
+       <a href="<%=news_letters_path(alphabet:'v')%>" class="btn btn-default">V</a>
+       <a href="<%=news_letters_path(alphabet:'w')%>" class="btn btn-default">W</a>
+       <a href="<%=news_letters_path(alphabet:'x')%>" class="btn btn-default">X</a>
+       <a href="<%=news_letters_path(alphabet:'y')%>" class="btn btn-default">Y</a>
+       <a href="<%=news_letters_path(alphabet:'z')%>" class="btn btn-default">Z</a>
+       </div>
+       </div>
+       </div>
+       </div>
+       </div>
+       </div>
+   </div>
      <div class="row">
            <div class="col-md-12">
                <div class="panel panel-default">
@@ -19,27 +100,14 @@
                    </div>
                  </div>
                  <div class="panel-body">
-
-                   <!-- <div class="row">
-                     <div class="col-xs-6">
-                       <div id="" class="">
-                         show
-                         <select name="example1_length" size="1" aria-controls="">
-                             <option value="10" selected="selected">10</option>
-                               <option value="25">25</option>
-                               <option value="50">50</option>
-                               <option value="100">100</option>
-                           </select> Entries per page</div>
-                       </div>
-                       <div class="col-xs-6"><div class="dataTables_filter pull-right" id="example1_filter"><label>Search: <input type="text" aria-controls="example1"></label></div>
-                       </div>
-                   </div> -->
-
                    <table id="example" class="table table-striped table-responsive" cellspacing="0" width="100%">
                    <thead>
                        <tr>
+                          <th>ID</th>
                            <th>Ad Preview</th>
                            <th>Category</th>
+                           <th>Advertiser Name</th>
+                           <th>Advertiser Email</th>
                            <th>Influencer Name</th>
                            <th>Influencer Email</th>
                            <th>Link Share</th>
@@ -51,8 +119,11 @@
                    <tbody>
                      <%@advertisements.each do |advertisement|%>
                        <tr>
+                         <td><%=advertisement.id%></td>
                            <td><img src="<%=advertisement.ad_image_url%>" alt="Ad Preview" class="img-thumb"></td>
                            <td><%= Category.find(advertisement.category).name %></td>
+                           <td><%= Advertiser.find(advertisement.advertiser_id).name %></td>
+                           <td><%= Advertiser.find(advertisement.advertiser_id).email %></td>
                            <td><%= Influencer.find(advertisement.influencer_id).name %></td>
                            <td><%= Influencer.find(advertisement.influencer_id).email %></td>
                            <td><a href="http://facebook.com/"><%=advertisement.url %></a></td>
@@ -64,6 +135,8 @@
                               <p>Declined by influencer</p>
                                 <%elsif advertisement.status == approved_by_admin%>
                               <p>Approved by you(Admin)</p>
+                              <%elsif advertisement.status == Advertisement::STATUS["Declined by Admin"]%>
+                              <p>Declined by you(Admin)</p>
                              <%else%>
                              <a href=" <%=approve_ads_advertisements_path(id:advertisement.id)%>" data-method="post" class="btn btn-success btn-xs">Approve</a>
                              <a href=" <%=decline_ads_advertisements_path(id:advertisement.id)%>" data-method="post" class="btn btn-danger btn-xs">Decline</a>
