@@ -36,10 +36,8 @@
                   <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><b><strong>Current Status:</strong><%= Advertisement::STATUS.key(@advertisement.status)%></b></span>
                 </p>
               </div>
-
               </div>
           </section>
-
           <section>
             <h2>Advertisement History</h2>
             <%if @ad_history_data.present?%>
@@ -52,7 +50,7 @@
               <tbody>
                 <%@ad_history_data.each do |history|%>
                 <tr>
-                  <td><%=history.created_at.strftime("%d %b. %Y")%></td>
+                  <td><%=history.created_at.strftime("%d %b. %Y %H:%M")%></td>
                   <td><%=Advertisement::STATUS.key(history.notification_type.to_i)%></td>
                   <td><%=history.notification_text%></td>
                 </tr>
@@ -63,7 +61,6 @@
             <h1>No History Available</h1>
             <%end%>
           </section>
-
         </div>
       </div>
     </div>

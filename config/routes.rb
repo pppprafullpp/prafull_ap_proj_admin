@@ -20,8 +20,10 @@ Rails.application.routes.draw do
   end
 
   resources :advertisements do
-    post :approve_ads
-    post :decline_ads
+    collection do
+      post :approve_ads
+      post :decline_ads
+    end
   end
 
   resources :news_letters do
@@ -31,7 +33,6 @@ Rails.application.routes.draw do
 
   end
   resource :app_configurations
-
   resources :influencers
   resources :advertisers
 

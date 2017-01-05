@@ -20,5 +20,19 @@ class ApplicationController < ActionController::Base
     notifications
   end
 
+  def today_earning
+    amount = Transaction.where("created_at >= ?", Time.zone.now.beginning_of_day).sum(:amount)
+    amount
+  end
+
+  def monthly_earning
+    amount = Transaction.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount)
+    amount
+  end
+
+  def published_ad_count
+    published_ads = Advertisement.where(:status=>6).count
+    published_ads
+  end
 
 end

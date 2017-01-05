@@ -49,4 +49,13 @@ class AdminsController < ApplicationController
     }
   end
 
+  def get_notifications
+    notifications = Notification.where(:viewed=>false).order("Id DESC").pluck(:activity_type,:activity)
+    render :json => {
+      success:true,
+      notifications: notifications
+    }
+    notifications
+  end
+
 end
