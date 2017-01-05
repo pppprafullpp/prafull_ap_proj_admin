@@ -11,9 +11,10 @@ class Advertisement < ActiveRecord::Base
   end
  # influencer_id: '1' advertiser_id: '6' category: celebrity advertisement_status: '3' ivars: :@permitted: false
   def self.search(params)
+    # raise params.to_yaml
     conditions = []
     conditions << "influencer_id = #{params[:influencer_id]}" if params[:influencer_id].present?
-    conditions << "advertiser_id = #{params[:advertiser_id]}" if params[:advertiser_id].present?
+    conditions << "advertiser_id =' #{params[:advertiser_id]}'" if params[:advertiser_id].present?
     conditions << "status = #{params[:advertisement_status]}" if params[:advertisement_status].present?
     condition = conditions.join(' and ')
     self.where(condition)

@@ -39,16 +39,14 @@
                     </li>
 
                     <li class="dropdown messages">
-                      <%notifications = get_notifications%>
-                        <span id="notification_count" class="badge badge-danager animated bounceIn"><%=notifications.count%></span>
+
+                        <span id="notification_count" class="badge badge-danager animated bounceIn">0</span>
                         <button type="button" class="btn btn-default dropdown-toggle options" onclick="javascript:$('#notification-dropdown').toggle()" id="toggle-mail" data-toggle="dropdown">
                             <i class="fa fa-bell"></i>
                         </button>
 
                         <ul class="dropdown-menu alert animated fadeInDown" style="height: 189px;overflow: hidden;"id="notification-dropdown">
-                            <%notifications.each do |n|%>
-                              <li><a><div class="message-info"><%=n[1]%></div></a></li>
-                            <%end%>
+
                         </ul>
 
                     </li>
@@ -79,18 +77,19 @@
             </div>
         </header>
 
-<!-- <script>
-setInterval(get_notification, 10000);
+<script>
+// setInterval(get_notification, 1000);
 function get_notification(){
   $.ajax({
     url:"/admins/get_notifications",
     type:"POST",
     data:{
       count_only:true
-    }
+    },
     success: function(response){
-       $("#notification-dropdown").append("<li><a href=''><div class='message-info'><div class='message-content'>"+response["notifications"][0][1]+"</div></li>");
+      //  $("#notification-dropdown").append("<li><a href=''><div class='message-info'><div class='message-content'>"+response["notifications"][0][1]+"</div></li>");
+      console.log(response);
     }
   });
 }
-</script> -->
+</script>

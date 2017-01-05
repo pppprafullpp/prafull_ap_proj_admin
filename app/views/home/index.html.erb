@@ -2,7 +2,7 @@
 <%=render :partial=>"layouts/left_panel"%>
 <section class="main-content-wrapper column">
     <section id="main-content">
-     
+
         <!--tiles start-->
         <div class="row">
           <div class="col-lg-12">
@@ -14,7 +14,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="dashboard-tile detail">
                     <div class="content">
-                        <h1 class="text-left timer" data-from="0" data-to="180" data-speed="2500">$50 </h1>
+                        <h2 class="text-left timer" data-from="0" data-to="180" data-speed="2500">$<%=@today_earning||0%></h2>
                         <p>Today</p>
                     </div>
                     <div class="icon"><i class="fa fa-money"></i>
@@ -24,8 +24,8 @@
             <div class="col-md-3 col-sm-6">
                 <div class="dashboard-tile detail">
                     <div class="content">
-                        <h1 class="text-left timer" data-from="0" data-to="56" data-speed="2500">$150 </h1>
-                        <p>Yesterday</p>
+                        <h2 class="text-left timer" data-from="0" data-to="38" data-speed="2500">$<%=@monthly_earning || 0%> </h2>
+                        <p>This Month</p>
                     </div>
                     <div class="icon"><i class="fa fa-money"></i>
                     </div>
@@ -34,8 +34,8 @@
             <div class="col-md-3 col-sm-6">
                 <div class="dashboard-tile detail">
                     <div class="content">
-                        <h1 class="text-left timer" data-from="0" data-to="38" data-speed="2500">$250 </h1>
-                        <p>This Month</p>
+                        <h2 class="text-left timer" data-from="0" data-to="56" data-speed="2500"> <%=@published_ad_count || 0%></h2>
+                        <p>Published Ads till now</p>
                     </div>
                     <div class="icon"><i class="fa fa-bar-chart"></i>
                     </div>
@@ -44,17 +44,15 @@
             <div class="col-md-3 col-sm-6">
                 <div class="dashboard-tile detail">
                     <div class="content">
-                        <h1 class="text-left timer" data-to="105" data-speed="2500">$150 </h1>
-                        <p>Pending</p>
+                        <h2 class="text-left timer" data-to="105" data-speed="2500"><%=@infleuncer_count%></h2>
+                        <p>Influencers</p>
                     </div>
                     <div class="icon"><i class="fa fa-clock-o"></i>
                     </div>
                 </div>
             </div>
         </div>
-        <!--tiles end-->
 
-        <!--ToDo start-->
         <div class="row">
           <div class="col-lg-12">
               <h3>Registered Users</h3>

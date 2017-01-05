@@ -36,7 +36,6 @@
                             <td><%=Advertisement.get_advertisement_count_of_particular_advertiser(advertiser.id) %></td>
                             <td><%= %></td>
                             <td>
-                              <a href="#" class="green"><i class="fa fa-edit" title="Edit"></i></a>
                               <a onclick="delete_advertiser(<%=advertiser.id%>)" href="#" class="red"><i class="fa fa-trash" title="Delete"></i></a>
                               <a href="<%=reset_password_admins_path(type:'advertiser',id:advertiser.id)%>" data-method="post" data-remote="true" onclick="show_success_message('password_reset')" class="green"><i class="fa fa-refresh" title="reset password"></i></a>
                             </td>

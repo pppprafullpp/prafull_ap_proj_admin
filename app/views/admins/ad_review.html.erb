@@ -24,7 +24,7 @@
        <div class="col-md-3">
        <div class="form-group">
        <label class="" for="">Advertiser</label>
-       <%=select_tag(:advertiser_id,options_for_select(Advertiser.all.collect{ |u| ["#{u.name}(#{u.email})"]},params[:search][:advertiser_id]),{:include_blank=>"Select Advertiser",:class=>"form-control",:name=>"search[advertiser_id]"})%>
+       <%=select_tag(:advertiser_id,options_for_select(Advertiser.all.collect{ |u| ["#{u.name}(#{u.email})",u.id]},params[:search][:advertiser_id]),{:include_blank=>"Select Advertiser",:class=>"form-control",:name=>"search[advertiser_id]"})%>
        </div>
        </div>
 
@@ -45,14 +45,14 @@
 
        <div class="col-md-3">
          <button type="submit" class="btn btn-primary mgTop30" style="margin-top: 9%">Search</button>
-         <a href="/admins/ad_review" class="btn btn-primary mgTop30" style="margin-top: 9%">Clear<a>
+         <a href="/admins/ad_review" class="btn btn-primary mgTop30" style="margin-top: 9%">Clear</a>
        </div>
 
        <%end%>
 
        </div>
 
-       <div class="row">
+       <!-- <div class="row">
        <div class="col-md-12">
        <div class="pull-left">Search By:</div>
        <div class="btn-toolbar">
@@ -86,7 +86,7 @@
        </div>
        </div>
        </div>
-       </div>
+       </div> -->
        </div>
        </div>
    </div>
@@ -105,7 +105,7 @@
                        <tr>
                           <th>ID</th>
                            <th>Ad Preview</th>
-                           <th>Category</th>
+                           <!-- <th>Category</th> -->
                            <th>Advertiser Name</th>
                            <th>Advertiser Email</th>
                            <th>Influencer Name</th>
@@ -121,8 +121,7 @@
                        <tr>
                          <td><%=advertisement.id%></td>
                            <td><img src="<%=advertisement.ad_image_url%>" alt="Ad Preview" class="img-thumb"></td>
-                           <td><%= Category.find(advertisement.category).name %></td>
-                           <td><%= Advertiser.find(advertisement.advertiser_id).name %></td>
+                            <td><%= Advertiser.find(advertisement.advertiser_id).name %></td>
                            <td><%= Advertiser.find(advertisement.advertiser_id).email %></td>
                            <td><%= Influencer.find(advertisement.influencer_id).name %></td>
                            <td><%= Influencer.find(advertisement.influencer_id).email %></td>

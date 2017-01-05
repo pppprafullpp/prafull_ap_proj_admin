@@ -1,0 +1,116 @@
+<%=render :partial=>"layouts/header"%>
+<%=render :partial=>"layouts/left_panel"%>
+
+
+<section class="main-content-wrapper column">
+   <section id="main-content">
+        <div class="row">
+
+       </div>
+
+    <div class="row">
+     <div class="col-md-12">
+         <div class="panel panel-default">
+           <div class="panel-body">
+             <section class="account section" style="min-height:575px;">
+                <div class="row">
+                <div class="col-md-12">
+                  <h1>Advertisement Details</h1>
+                </div>
+               </div>
+              <div class="row">
+                <div class="col-sm-4"><img class="img-responsive" alt="team" src="<%=@advertisement.ad_image_url%>"></div>
+                <div class="col-sm-8">
+                <h4 class="member-name"><b>Title</b>:<%=@advertisement.title%></h4>
+                <p><strong>Description:</strong><%=@advertisement.description%></p>
+                <p>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Caption:</strong><%=@advertisement.caption%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Platform:</strong><%=Advertisement::PLATFORMS.key(@advertisement.platform)%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Posted By:</strong><%=Advertiser.find(@advertisement.advertiser_id).name%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Advertiser's Name:</strong><%=Advertiser.find(@advertisement.advertiser_id).name%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Advertiser's Email:</strong><%=Advertiser.find(@advertisement.advertiser_id).email%><span style="float:right;cursor:pointer">
+                    <i onclick="send_email('<%=Advertiser.find(@advertisement.advertiser_id).email%>')" class='fa fa-envelope'></i></span></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Influencer's Name:</strong><%=Influencer.find(@advertisement.influencer_id).name%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Influencer's Email:</strong><%=Influencer.find(@advertisement.influencer_id).email%><span style="float:right;cursor:pointer">
+                    <i onclick="send_email('<%=Influencer.find(@advertisement.influencer_id).email%>')" class='fa fa-envelope'></i></span></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><b><strong>Current Status:</strong><%= Advertisement::STATUS.key(@advertisement.status)%></b></span>
+                </p>
+              </div>
+              </div>
+          </section>
+          <section>
+            <h2>Advertisement History</h2>
+            <%if @ad_history_data.present?%>
+            <table class="table table-responsive">
+              <tr>
+                <th>Created At</th>
+                <th>Notification Type</th>
+                <th>Notification Text</th>
+              </tr>
+              <tbody>
+                <%@ad_history_data.each do |history|%>
+                <tr>
+                  <td><%=history.created_at.strftime("%d %b. %Y %H:%M")%></td>
+                  <td><%=Advertisement::STATUS.key(history.notification_type.to_i)%></td>
+                  <td><%=history.notification_text%></td>
+                </tr>
+                <%end%>
+              </tbody>
+            </table>
+            <%else%>
+            <h1>No History Available</h1>
+            <%end%>
+          </section>
+        </div>
+      </div>
+    </div>
+   </div>
+
+   </section>
+</section>
+
+<div class="modal fadeIn" id="admin-reported-ads-mailer">
+ <h2>Send Mail to <span id="reciepent_email"></span></h2>
+ <%=form_tag "send_notification_mail",:method=>"post" do%>
+ <div class="form-group">
+   <%=text_field_tag :email,"",:placeholder=>"Enter Email",:Class=>"form-control",:required=>true%>
+ </div>
+ <div class="form-group">
+   <%=text_field_tag :subject,"",:placeholder=>"Enter Subject",:Class=>"form-control",:required=>true%>
+ </div>
+ <div class="form-group">
+   <%=text_area_tag :message,"Enter Message Here",:placeholder=>"Enter Subject",:Class=>"form-control",:required=>true%>
+ </div>
+ <div class="form-group">
+   <%=submit_tag "Send"%>
+ </div>
+ <%end%>
+</div>
+<!-- Approve Popups -->
+	<div class="modal fade" id="approvePopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-close"></span></button>
+			<h4 class="modal-title" id="myModalLabel">Ad Approve</h4>
+		  </div>
+		  <div class="modal-body">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="alert alert-success text-center" role="alert">
+					<span class="ion-checkmark-circled" style="font-size:18px; margin-right:5px;"></span> Your ad is successfully approved.
+					</div>
+				</div>
+            </div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+<script>
+function send_email(email_id){
+  console.log(email_id);
+  $("#email").val(email_id);
+  $("#admin-reported-ads-mailer").fadeToggle("hidden", 'slow');
+}
+</script>

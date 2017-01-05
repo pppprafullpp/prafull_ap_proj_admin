@@ -19,9 +19,11 @@ Rails.application.routes.draw do
     post :get_notifications
   end
 
-  resource :advertisements do
-    post :approve_ads
-    post :decline_ads
+  resources :advertisements do
+    collection do
+      post :approve_ads
+      post :decline_ads
+    end
   end
 
   resources :news_letters do
@@ -31,7 +33,6 @@ Rails.application.routes.draw do
 
   end
   resource :app_configurations
-
   resources :influencers
   resources :advertisers
 

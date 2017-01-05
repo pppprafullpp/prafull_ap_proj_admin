@@ -8,7 +8,13 @@ class HomeController < ApplicationController
       reset_session
       # render :text => "Unauthorized"
       redirect_to "/unauthorized"
+    else
+      @earned_today = today_earning
+      @monthly_earning = monthly_earning
+      @published_ad_count = published_ad_count
+      @infleuncer_count = Influencer.count
     end
+
   end
 
 end
