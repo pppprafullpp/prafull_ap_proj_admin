@@ -1,27 +1,22 @@
 // JavaScript Document
 
-(function($) {
 
-			$.fn.equalHeights = function() {
-				var maxHeight = 0,
-					$this = $(this);
-		
-				$this.each( function() {
-					var height = $(this).innerHeight();
-		
-					if ( height > maxHeight ) { maxHeight = height; }
-				});
-		
-				return $this.css('height', maxHeight);
-			};
-		
-			// auto-initialize plugin
-			$('[data-equal]').each(function(){
-				var $this = $(this),
-					target = $this.data('equal');
-				$this.find(target).equalHeights();
-			});
-		
-		})(jQuery);
-		
-$('#equalheight .column').equalHeights();
+$(document).ready(function(){
+    resizeContent();
+
+    $(window).resize(function() {
+        resizeContent();
+    });
+
+    $(window).on("scroll",function() {
+        resizeContent();
+    });
+});
+
+function resizeContent() {
+    $height = $(window).height()+ window.pageYOffset;
+		// if ($height < 850){
+		$('.sidebar').height($height-50);
+		// }
+
+}

@@ -148,8 +148,7 @@
 <div class="col-md-12">
   <div class="panel panel-default">
     <div class="panel-body">
-
-      <%=form_for :send_newsletters, :url=>send_newsletters_news_letters_path,:method=>"post" do%>
+    <%=form_for "send_newsletters",:url=>send_newsletters_news_letters_path,:method=>"post",:id=>"ddd" do%>
     <header>
     <h2>New Message</h2>
     </header>
@@ -172,10 +171,11 @@
     <%=text_area_tag :message,"",:row=>"5",:cols=>"40",:placeholder=>"Enter message",:style=>"width:100%;height:200px",:class=>"textarea form-control"%>
 
     </div>
+    <div class="panel-body"><%=file_field_tag :attachment, :class=>"btn btn-default btn-sm pull-right"  %></div>
+
     <div class="panel-footer">
-      <button class="btn btn-sm btn-primary ">Send</button>
+      <%=submit_tag "Send", :class=>"btn btn-sm btn-primary"%>
       <button class="btn btn-default btn-sm "><i class="fa fa-times"></i> Discard</button>
-       <i class="fa fa-paperclip"></i><%=file_field_tag :attachement, :class=>"btn btn-default btn-sm pull-right"  %>
     </div>
     </div>
     </div>
@@ -210,6 +210,7 @@ function send_to_all_influencers(){
       console.log(email);
       $("#mail_to").val($("#mail_to").val()+email+",");
     }
+    $($("form")[1]).attr("ectype","multipart/form-data")
 </script>
 
    </section>
