@@ -71,6 +71,7 @@ function update_app_configurations(data,type){
     config_value = data;
   }
   response = make_changes_in_app_configurations(config_key,config_value)
+  console.log(response);
   if( response["success"] == true) {
       alert("updated");
   }
