@@ -500,7 +500,7 @@ img {
   background: #AAA;
 }
 /* ==========================================================================
-   Main Content 
+   Main Content
    ========================================================================== */
 .main-content-wrapper {
   margin-left: 240px;
@@ -2587,8 +2587,8 @@ margin-left: -5px;
 }
 #leftside-navigation ul.nano-content ul.list-inline li{
     background: none;
-    padding-left: 0; 
-    padding-right: 0; 
+    padding-left: 0;
+    padding-right: 0;
 }
 #leftside-navigation ul.nano-content ul.list-inline li a i{
     width: inherit;
@@ -2602,7 +2602,7 @@ padding: 5px 0 5px 5px;
 }
 
 .nano-content .user-panel .info .list-inline .i {
-min-width: 14px;  
+min-width: 14px;
 }
 
 
@@ -2652,3 +2652,6 @@ h1 i{
 .selectAll			{border:1px solid #ccc; padding:3px 10px; display:inline-block; background:#f4f4f4; border-radius:3px;}
 .selectAll input	{margin-right:10px;}
 .table > thead > tr > th {vertical-align:middle;}
+.field-with-icon {
+  padding-left:10%;
+}
