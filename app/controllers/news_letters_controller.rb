@@ -12,32 +12,34 @@ class NewsLettersController < ApplicationController
   end
 
   def send_newsletters
-    # raise params.to_yaml
       subject = params[:subject]
       message = params[:message]
       attachment ||= params[:mail][:attachment] rescue nil
       upload = ""
       if attachment.present?
        upload = Cloudinary::Uploader.upload(attachment,:eager => [{ :width => 600}]) #returns 600px wide image
-       attachment_link = upload["url"]
+       attachment_link ||= upload["url"]
       end
       #send to all
-
       if params[:sent_to_all_influencers] == "on"
         @all_emails = Influencer.pluck(:email)
         @all_emails.each_slice(100) do |email|
-          NotificationMailer.delay(run_at: 10.minutes.from_now).send_mail_from_admin(email,subject,message)
+          NotificationMailer.delay(run_at: 1.minutes.from_now).send_mail_from_admin(email,subject,message,attachment_link)
         end
-
-        if params[:sent_to_all_advertisers] == "on"
-          @all_emails = Advertiser.pluck(:email)
-          @all_emails.each_slice(100) do |email|
-            NotificationMailer.delay(run_at: 10.minutes.from_now).send_mail_from_admin(email,subject,message)
-        end
-
       else
-end
+        # raise params.to_yaml
+        @all_emails = params[:mail_to].split(",")
+        @all_emails.each_slice(100) do |email|
+              NotificationMailer.delay(run_at: 1.minutes.from_now).send_mail_from_admin(email,subject,message,attachment_link)
+          end
+      #   if params[:sent_to_all_advertisers] == "off"
+      #     @all_emails = Advertiser.pluck(:email)
+      #     @all_emails.each_slice(100) do |email|
+      #       NotificationMailer.send_mail_from_admin(email,subject,message,attachment_link)
+      #   end
+      # else
       end
+      # end
       redirect_to :back
   end
 

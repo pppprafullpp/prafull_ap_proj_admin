@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :declined_by_influencer, :approved_by_admin, :get_notifications
-
+  
   def declined_by_influencer
     value = Advertisement::STATUS["Declined by influencer"]
     value
