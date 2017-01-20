@@ -1510,3 +1510,89 @@ Please ensure you restarted your application after installing Devise or setting 
 >>>>>>> fcceb0d57fed432f45b13f0b688ba62978383c85
 Tasks: TOP => update_social_data:update_facebook_likes => environment
 (See full trace by running task with --trace)
+rake aborted!
+Devise.secret_key was not set. Please add the following to your Devise initializer:
+
+  config.secret_key = 'dc2bb43088bf36dc5ee61943c74a7ede458a68c7321cc479b690066ac4ea0002f83d302f876d43db861b4ebadba118f66afdb4e9578f512bf2281dfd3dd1d357'
+
+Please ensure you restarted your application after installing Devise or setting the key.
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/devise-4.2.0/lib/devise/rails/routes.rb:498:in `raise_no_secret_key'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/devise-4.2.0/lib/devise/rails/routes.rb:226:in `devise_for'
+/home/servicedealz/socialbooker-admin/config/routes.rb:2:in `block in <top (required)>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/routing/route_set.rb:432:in `instance_exec'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/routing/route_set.rb:432:in `eval_block'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/routing/route_set.rb:410:in `draw'
+/home/servicedealz/socialbooker-admin/config/routes.rb:1:in `<top (required)>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:268:in `load'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:268:in `block in load'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:240:in `load_dependency'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:268:in `load'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:40:in `block in load_paths'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:40:in `each'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:40:in `load_paths'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:16:in `reload!'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:26:in `block in updater'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/file_update_checker.rb:75:in `execute'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:27:in `updater'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:7:in `execute_if_updated'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/finisher.rb:69:in `block in <module:Finisher>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/initializable.rb:30:in `instance_exec'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/initializable.rb:30:in `run'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/initializable.rb:55:in `block in run_initializers'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/initializable.rb:54:in `run_initializers'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application.rb:352:in `initialize!'
+/home/servicedealz/socialbooker-admin/config/environment.rb:5:in `<top (required)>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:274:in `require'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:274:in `block in require'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:240:in `load_dependency'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:274:in `require'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application.rb:328:in `require_environment!'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application.rb:457:in `block in run_tasks_blocks'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/rake-11.3.0/exe/rake:27:in `<top (required)>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `eval'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `<main>'
+Tasks: TOP => update_social_data:update_facebook_likes => environment
+(See full trace by running task with --trace)
+rake aborted!
+Devise.secret_key was not set. Please add the following to your Devise initializer:
+
+  config.secret_key = 'cb373257969bf50c6b447a55a2563ce1d6bb82604e2c755bd2352986cb7bd09c07733f7c42e86aff3c05012e797f5325dc80eed74a0bbdf7f9c417479c37ae4c'
+
+Please ensure you restarted your application after installing Devise or setting the key.
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/devise-4.2.0/lib/devise/rails/routes.rb:498:in `raise_no_secret_key'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/devise-4.2.0/lib/devise/rails/routes.rb:226:in `devise_for'
+/home/servicedealz/socialbooker-admin/config/routes.rb:2:in `block in <top (required)>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/routing/route_set.rb:432:in `instance_exec'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/routing/route_set.rb:432:in `eval_block'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.6/lib/action_dispatch/routing/route_set.rb:410:in `draw'
+/home/servicedealz/socialbooker-admin/config/routes.rb:1:in `<top (required)>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:268:in `load'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:268:in `block in load'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:240:in `load_dependency'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:268:in `load'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:40:in `block in load_paths'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:40:in `each'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:40:in `load_paths'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:16:in `reload!'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:26:in `block in updater'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/file_update_checker.rb:75:in `execute'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:27:in `updater'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/routes_reloader.rb:7:in `execute_if_updated'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application/finisher.rb:69:in `block in <module:Finisher>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/initializable.rb:30:in `instance_exec'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/initializable.rb:30:in `run'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/initializable.rb:55:in `block in run_initializers'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/initializable.rb:54:in `run_initializers'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application.rb:352:in `initialize!'
+/home/servicedealz/socialbooker-admin/config/environment.rb:5:in `<top (required)>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:274:in `require'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:274:in `block in require'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:240:in `load_dependency'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/activesupport-4.2.6/lib/active_support/dependencies.rb:274:in `require'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application.rb:328:in `require_environment!'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/application.rb:457:in `block in run_tasks_blocks'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/gems/rake-11.3.0/exe/rake:27:in `<top (required)>'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `eval'
+/home/servicedealz/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `<main>'
+Tasks: TOP => update_social_data:update_facebook_likes => environment
+(See full trace by running task with --trace)
