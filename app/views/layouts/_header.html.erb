@@ -1,4 +1,3 @@
-
         <header id="header">
             <!--logo start-->
             <div class="brand">
@@ -10,6 +9,12 @@
                     <i class="fa fa-bars"></i>
                 </button>
             </div>
+            <script>
+              $('#toggle-left').bind('click',function() {
+                $(".sidebar").toggleClass("sidebar-toggle");
+                $(".main-content-wrapper").toggleClass("main-content-toggle-left");
+              });
+            </script>
             <div class="user-nav">
                 <ul>
                     <li class="dropdown messages">
