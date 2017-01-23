@@ -45,17 +45,18 @@
                        <%end%>
                    </tbody>
                </table>
-               </div>
-
                <!-- Pagination -->
+
+               </div>
                <div class="row">
                    <div class="col-md-6">
-                     <div class="dataTables_paginate paging_bootstrap pull-right dataTables_info">
+                     <div class="dataTables_paginate paging_bootstrap pull-right dataTables_info pull-left">
                        <%=will_paginate @reported_ads%>
-                       <%=page_entries_info @reported_ads%>
+                       <%#=page_entries_info @reported_ads%>
                        </div>
                    </div>
                </div>
+
 
               </div>
             </div>

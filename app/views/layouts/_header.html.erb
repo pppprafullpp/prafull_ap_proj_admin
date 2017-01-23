@@ -84,23 +84,37 @@ function get_notification(){
     }
   });
 }
+
 function show_user_dropdown(){
   if ($('#messages-dropdown').is(":visible") == true) {
-       $('#messages-dropdown').hide();
-       $('#admin-dropdown').show();
+       $('#messages-dropdown').toggle();
+       $('#admin-dropdown').toggle();
   }
   else {
       $('#admin-dropdown').show();
+    }
   }
-}
 
 function show_messages_dropdown(){
   if ($('#admin-dropdown').is(":visible") == true) {
-      $('#admin-dropdown').hide();
-      $('#messages-dropdown').show();
+      $('#admin-dropdown').toggle();
+      $('#messages-dropdown').toggle();
   }
   else {
      $('#messages-dropdown').show();
+   }
   }
-}
+  // $(document).on("click",function(){
+  //
+  //   if ($('#messages-dropdown').is(":visible") == true) {
+  //         $('#messages-dropdown').show();
+  //           console.log("Dd1");
+  //     }
+  //   if ($('#admin-dropdown').is(":visible") == true) {
+  //         $('#admin-dropdown').show();
+  //           console.log("Dd2");
+  //     }
+  //
+  //
+  // });
 </script>
