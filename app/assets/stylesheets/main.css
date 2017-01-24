@@ -9,6 +9,8 @@ body {
   margin: 0px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  max-width:100%;
+  overflow-x:hidden;
 }
 a:link,
 a:visited {
@@ -500,7 +502,7 @@ img {
   background: #AAA;
 }
 /* ==========================================================================
-   Main Content
+   Main Content 
    ========================================================================== */
 .main-content-wrapper {
   margin-left: 240px;
@@ -741,11 +743,11 @@ label.valid {
   border: none;
   font-size: 14px;
   font-weight: normal;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  -o-border-radius: 0px;
-  border-radius: 0px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: px;
+  border-radius: 5px;
   padding: 8px 14px;
   margin-bottom: 5px;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -2587,8 +2589,8 @@ margin-left: -5px;
 }
 #leftside-navigation ul.nano-content ul.list-inline li{
     background: none;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0; 
+    padding-right: 0; 
 }
 #leftside-navigation ul.nano-content ul.list-inline li a i{
     width: inherit;
@@ -2602,7 +2604,7 @@ padding: 5px 0 5px 5px;
 }
 
 .nano-content .user-panel .info .list-inline .i {
-min-width: 14px;
+min-width: 14px;  
 }
 
 
@@ -2648,20 +2650,29 @@ h1 i{
 
 .progress-bar-green {background-color:#33ad36; padding:0 10px; border-radius:3px; width:73px;}
 .progress-bar-red 	{background-color:#d93836; padding:0 10px; width:73px; border-radius:3px;}
-.img-thumb			{width:75px; padding:3px; border:solid 1px #DDDDDD;}
-img.img-thumb		{max-width: 75px;}
+.img-thumb			{width:60px; padding:3px; border:solid 1px #DDDDDD;}
+img.img-thumb		{max-width: 60px;}
 .selectAll			{border:1px solid #ccc; padding:3px 10px; display:inline-block; background:#f4f4f4; border-radius:3px;}
 .selectAll input	{margin-right:10px;}
 .table > thead > tr > th {vertical-align:middle;}
+.panel-body			{-webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: px;
+  border-radius: 5px;}
 .borderBox-new      {margin:20px 0; border-top:solid 1px #e0e0e0; border-bottom:solid 1px #e0e0e0; padding:8px 15px; background:#f4f4f4;}
-.borderBox		    {margin:20px 0; border-top:solid 1px #e0e0e0; border-bottom:solid 1px #e0e0e0; padding:8px 15px; background:#fff;}
+.borderBox		    {margin:20px 0; border-top:solid 1px #e0e0e0; border-bottom:solid 1px #e0e0e0; padding:8px 15px; background:#fff; -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: px;
+  border-radius: 5px;}
 .mgTop30			{margin-top:25px;}
 .mgTop15			{margin-top:15px;}
 .borderBox-new label{display:block;}
 div.alphabet 		{display: table; margin-bottom: 1em; width: 100%;}
 div.alphabet span 	{color: #3174c7; cursor: pointer; display: table-cell; text-align: center; width: 3.5%;}
 .price-features-new {background-color: #f8f8f8; padding: 30px 20px 20px;}
-.price-features-new h4{ font-size:24px; color:#000; font-weight:bold;}
+.price-features-new h4{ font-size:24px; color:#000; font-weight:bold;}	
 .price-cta-new 		{background-color: #f8f8f8;    margin-bottom: 20px;    padding-bottom: 20px;    padding-left: 20px;    padding-right: 20px;}
 .price-cta-number 	{color: #007fbe; font-size: 24px;}
 .price-plan-time-unit{font-size:18px; color:#000; }
@@ -2669,6 +2680,8 @@ div.alphabet span 	{color: #3174c7; cursor: pointer; display: table-cell; text-a
 @media only screen and (max-width: 767px){
 	.dataTables_filter, .dataTables_info	{text-align:center; margin-bottom:20px;}
 }
-.field-with-icon {
-  padding-left:10%;
-}
+
+
+
+
+

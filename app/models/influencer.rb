@@ -6,7 +6,7 @@ class Influencer < ActiveRecord::Base
 
     has_one :social_account
     has_many :advertisements
-
+    scope :most_recent, -> (limit) { order("created_at desc").limit(limit) }
     def online
       if self.last_sign_in_at < 5.minutes.from_now
         true

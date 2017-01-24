@@ -75,12 +75,12 @@
 function send_email(email_id){
   console.log(email_id);
   $("#email").val(email_id);
-  $("#admin-reported-ads-mailer").fadeToggle("hidden", 'slow');
+  $("#admin-reported-ads-mailer").modal("show");
 }
 </script>
 
 
-<div class="modal fadeIn" id="admin-reported-ads-mailer">
+<div class="modal fadeIn" id="admin-reported-ads-mailer"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

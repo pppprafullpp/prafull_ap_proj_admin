@@ -5,9 +5,9 @@ class Advertiser < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
      has_many :advertisements
 
-# CITIES =[""]
+    scope :most_recent, -> (limit) { order("created_at desc").limit(limit) }
 
   def self.reset_password
   end
-  
+
 end

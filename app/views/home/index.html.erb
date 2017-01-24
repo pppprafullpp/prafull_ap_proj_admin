@@ -60,55 +60,144 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Advertiser</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <div class="advertiserBox">
-                                      <i class="fa fa-user"></i>
-                                        <h3>Advertiser List</h3>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div id="" class="btn btn-primary pull-right">View</div>
-                                    <div id='todo-count'></div>
-                                </div>
-                            </div>
-                        </div>
-      </div>
-                </div>
-  </div>
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Social Influencer</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <div class="advertiserBox">
-                                      <i class="fa fa-users"></i>
-                                        <h3>Social Influencer List</h3>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div id="" class="btn btn-primary pull-right">View</div>
-                                    <div id='todo-count'></div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Social Influencer</h3>
+            <div class="actions pull-right">
+            <i class="fa fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="panel-body">
+            <!-- <div class="row">
+              <div class="col-md-4 pull-right"><input class="form-control" placeholder="Search..." type="search"></div>
+            </div> -->
+            <div class="row">
+            <div class="col-md-12">
+              <div class="table-responsive mgTop15">
+                <table id="example" class="table table-striped" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                <th>image</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Ads Initiated</th>
+                <th>Action</th>
+                </tr>
+                </thead>
 
-                    </div>
-                </div>
-  </div>
+                <tbody>
+                  <%@recent_registered_advertisers.each do |recent_advertiser|%>
+                  <tr>
+                    <% if recent_advertiser.profile_photo_url%>
+                        <td><img src="<%=recent_advertiser.profile_photo_url%>" alt="Ad Preview" class="img-thumb"></td>
+                      <%else%>
+                        <td><img alt="Ad Preview" class="img-thumb" src="/assets/default-user"></td>
+                      <%end%>
+                      <td><%=recent_advertiser.name%> </td>
+                      <td><%=recent_advertiser.email%> </td>
+                      <td><%=check_ad_status_for_advertiser(recent_advertiser.id)%></td>
+                      <td>
+                        <a href="#" class="blue"></a>
+                        <a href="#" class="blue"><i class="fa fa-envelope" title="Contact"></i></a>
+                      </td>
+                   </tr>
+                   <%end%>
+                </tbody>
+                </table>
+              </div>
+              <div class="pull-right"><a href="<%=manage_advertiser_admins_path%>">View All <span class="fa fa-caret-right"></span></a></div>
+            </div>
+            </div>
+          </div>
         </div>
+        </div>
+        <div class="col-md-6">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Social Influencer</h3>
+          <div class="actions pull-right">
+          <i class="fa fa-chevron-down"></i>
+          </div>
+        </div>
+        <div class="panel-body">
+          <!-- <div class="row">
+            <div class="col-md-4 pull-right"><input class="form-control" placeholder="Search..." type="search"></div>
+          </div> -->
+          <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive mgTop15">
+            <table id="example" class="table table-striped" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Publishing Price($)</th>
+              <th>Action</th>
+            </tr>
+            </thead>
 
+            <tbody>
+          <%@recent_registered_influencers.each do |recent_influencer|%>
+          <tr>
+            <% if recent_influencer.profile_image_url%>
+                <td><img src="<%=recent_influencer.profile_image_url%>" alt="Ad Preview" class="img-thumb"></td>
+              <%else%>
+                <td><img alt="Ad Preview" class="img-thumb" src="/assets/default-user"></td>
+              <%end%>
+            <td><%=recent_influencer.name%></td>
+            <td><%=recent_influencer.email%> </td>
+            <td>$ <%=recent_influencer.publishing_price || 0%> </td>
+            <td><%=recent_influencer.name%></td>
+            <td>
+               <a href="#" class="blue"><i class="fa fa-envelope" title="Contact"></i></a>
+            </td>
+          </tr>
+          <%end%>
+
+            </tbody>
+            </table>
+            </div>
+            <div class="pull-right"><a href="<%=manage_influencer_admins_path%>">View All <span class="fa fa-caret-right"></span></a></div>
+          </div>
+          </div>
+          </div>
+        </div>
+        </div>
+        </div>
         <!--ToDo end-->
     </section>
 </section>
+<div class="modal fadeIn" id="admin-reported-ads-mailer" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-close"></span></button>
+        <h4>Send Mail to <span id="reciepent_email"></span></h4>
+    </div>
+   <div class="modal-body">
+     <div class="row">
+      <div class="col-lg-12">
+       <form action="send_notification_mail" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="Zup9UCVvDpczsF17+4oWcAJUvabUMWKgwlK0lMQTnkcqccLt6nHQFPbbNfUI0LIkiWnJUILhJAqSR5Xq1psfJg==">
+       <div class="form-group">
+         <input type="text" name="email" id="email" value="" placeholder="Enter Email" class="form-control" required="required">
+       </div>
+       <div class="form-group">
+         <input type="text" name="subject" id="subject" value="" placeholder="Enter Subject" class="form-control" required="required">
+       </div>
+       <div class="form-group">
+         <textarea name="message" id="message" placeholder="Enter Subject" class="form-control" required="required">Enter Message Here</textarea>
+       </div>
+       <div class="form-group">
+         <input type="submit" name="commit" value="Send" class="btn btn-info">
+       </div>
+     </form>
+   </div>
+   </div>
+   </div>
+
+
+ </div>
+ </div>
+</div>

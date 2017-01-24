@@ -46,7 +46,7 @@
 
       <div class="col-md-3">
         <button type="submit" class="btn btn-primary mgTop30" style="margin-top: 9%">Search</button>
-        <a href="/news_letters" class="btn btn-primary mgTop30" style="margin-top: 9%">Clear<a>
+        <a href="/news_letters" class="btn btn-primary mgTop30" style="margin-top: 9%">Clear</a>
       </div>
 
       <%end%>
@@ -157,13 +157,24 @@
     <div class="col-md-12">
     <div class="panel view-compose-body">
     <div class="panel-body">
-    <div class="form-group">
-      <th width="45">
-        <input type="checkbox" name="sent_to_all_influencers" id="mail_all_influencers" onclick="send_to_all_influencers()">send to all influencers</th><br />
-        <input type="checkbox" name="sent_to_all_advertisers" id="mail_all_advertisers" onclick="send_to_all_advertisers()">send to all advertisers</th>
 
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-3">
+            <label class="checkbox-inline">
+            <input class="icheck" type="checkbox" name="sent_to_all_influencers" id="mail_all_influencers" onclick="send_to_all_influencers()">send to all influencers</label>
+          </div>
+          <div class="col-md-3">
+            <label class="checkbox-inline">
+            <input class="icheck" type="checkbox" name="sent_to_all_advertisers" id="mail_all_advertisers" onclick="send_to_all_advertisers()">send to all advertisers</label>
+          </div>
+        </div>
+      </div>
+
+    <div class="form-group">
         <%=text_field_tag :mail_to,"",:placeholder=>"Email",:class=>"form-control"%>
     </div>
+
     <div class="form-group">
       <%=text_field_tag :subject,"",:placeholder=>"Subject",:class=>"form-control"%>
     </div>
