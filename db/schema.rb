@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222162139) do
+ActiveRecord::Schema.define(version: 20170124063503) do
+
+  create_table "activities", force: :cascade do |t|
+    t.integer  "trackable_id",   limit: 4
+    t.string   "trackable_type", limit: 255
+    t.integer  "owner_id",       limit: 4
+    t.string   "owner_type",     limit: 255
+    t.string   "key",            limit: 255
+    t.text     "parameters",     limit: 65535
+    t.integer  "recipient_id",   limit: 4
+    t.string   "recipient_type", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
+  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
+  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -92,6 +109,7 @@ ActiveRecord::Schema.define(version: 20161222162139) do
     t.string   "advertiser_type",        limit: 255
     t.text     "token",                  limit: 65535
     t.boolean  "is_verified"
+    t.text     "profile_photo_url",      limit: 65535
   end
 
   add_index "advertisers", ["email"], name: "index_advertisers_on_email", unique: true, using: :btree
@@ -135,6 +153,12 @@ ActiveRecord::Schema.define(version: 20161222162139) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.text     "country_name", limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   limit: 4,     default: 0, null: false
     t.integer  "attempts",   limit: 4,     default: 0, null: false
@@ -150,6 +174,24 @@ ActiveRecord::Schema.define(version: 20161222162139) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "group_mappings", force: :cascade do |t|
+    t.integer  "advertiser_id",       limit: 4
+    t.integer  "influencer_group_id", limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.text     "group_name",          limit: 65535
+  end
+
+  create_table "influencer_groups", force: :cascade do |t|
+    t.integer  "advertiser_id",    limit: 4
+    t.string   "influencer_id",    limit: 255
+    t.text     "group_name",       limit: 65535
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "category_id",      limit: 4
+    t.integer  "group_mapping_id", limit: 4
+  end
 
   create_table "influencers", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -172,6 +214,7 @@ ActiveRecord::Schema.define(version: 20161222162139) do
     t.text     "publishing_price",       limit: 65535
     t.text     "token",                  limit: 65535
     t.boolean  "is_verified"
+    t.text     "profile_image_url",      limit: 65535
   end
 
   add_index "influencers", ["email"], name: "index_influencers_on_email", unique: true, using: :btree
@@ -211,6 +254,7 @@ ActiveRecord::Schema.define(version: 20161222162139) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "viewed"
+    t.integer  "advertisement_id",  limit: 4
   end
 
   create_table "roles", force: :cascade do |t|
@@ -227,7 +271,7 @@ ActiveRecord::Schema.define(version: 20161222162139) do
   create_table "social_accounts", force: :cascade do |t|
     t.integer  "influencer_id",        limit: 4
     t.integer  "platform_type",        limit: 4
-    t.text     "platform_type_id",     limit: 65535
+    t.text     "facebook_profile_id",  limit: 65535
     t.text     "platform_link",        limit: 65535
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
@@ -237,6 +281,26 @@ ActiveRecord::Schema.define(version: 20161222162139) do
     t.text     "facebook_image_url",   limit: 65535
     t.text     "country",              limit: 65535
     t.text     "category",             limit: 65535
+    t.text     "facebook_page_id",     limit: 65535
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "advertisement_id", limit: 4
+    t.integer  "influencer_id",    limit: 4
+    t.integer  "advertiser_id",    limit: 4
+    t.text     "amount",           limit: 65535
+    t.integer  "status",           limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "wallet_transactions", force: :cascade do |t|
+    t.integer  "advertiser_id",           limit: 4
+    t.text     "paypal_transaction_id",   limit: 65535
+    t.integer  "transaction_amount",      limit: 4
+    t.text     "transaction_description", limit: 65535
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
 end
