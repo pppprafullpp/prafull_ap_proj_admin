@@ -1,0 +1,8 @@
+2017-01-25T00:00:05+05:30
+--- !ruby/exception:FbGraph2::Exception::InvalidToken
+message: This IP can't make requests for that application.
+status: 401
+type: OAuthException
+code: 190
+error_subcode: 
+--------------------------------------------------------------------------------------
