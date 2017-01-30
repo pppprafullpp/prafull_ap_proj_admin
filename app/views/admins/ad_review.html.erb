@@ -38,8 +38,8 @@
        <div class="col-md-3">
        <div class="form-group">
 
-       <label class="" for="">status</label>
-       <%=select_tag(:advertisement_status,options_for_select(Advertisement::STATUS,params[:search][:advertisement_status]),{:include_blank=>"AD STATUS",:class=>"form-control",:name=>"search[advertisement_status]"})%>
+       <label class="" for="">Status</label>
+       <%=select_tag(:advertisement_status,options_for_select(Advertisement::STATUS,params[:search][:advertisement_status]),{:include_blank=>"Ad Status",:class=>"form-control",:name=>"search[advertisement_status]"})%>
           </div>
        </div>
 
@@ -112,8 +112,8 @@
                            <th>Advertiser Email</th>
                            <th>Influencer Name</th>
                            <th>Influencer Email</th>
-                           <th>Link Share</th>
                            <th>Current Status</th>
+                           <th>Reason for decline</th>
                            <th>Action</th>
                        </tr>
                    </thead>
@@ -122,13 +122,18 @@
                      <%@advertisements.each do |advertisement|%>
                        <tr>
                          <td><%=advertisement.id%></td>
-                           <td><img src="<%=advertisement.ad_image_url%>" alt="Ad Preview" class="img-thumb"></td>
-                            <td><%= Advertiser.find(advertisement.advertiser_id).name  rescue nil%></td>
+                           <td>
+                             <%if advertisement.ad_image_url.present?%>
+                             <img src="<%=advertisement.ad_image_url%>" alt="Ad Preview" class="img-thumb"></td>
+                             <%else%>
+                             <img src="http://res.cloudinary.com/dhdl31ov5/image/upload/v1485755708/ad-na_voqzga.png" alt="Ad Preview" class="img-thumb"></td>
+                             <%end%>
+                           <td><%= Advertiser.find(advertisement.advertiser_id).name  rescue nil%></td>
                            <td><%= Advertiser.find(advertisement.advertiser_id).email  rescue nil%></td>
                            <td><%= Influencer.find(advertisement.influencer_id).name rescue nil %></td>
                            <td><%= Influencer.find(advertisement.influencer_id).email rescue nil %></td>
-                           <td><a href="http://facebook.com/"><%=advertisement.url %></a></td>
                            <td><%= Advertisement::STATUS.key (advertisement.status )%> </td>
+                           <td><%=advertisement.reason_for_decline%> </td>
                            <td>
                              <%if advertisement.status == Advertisement::STATUS["Published by influencer"] %>
                               <p>Published</p>

@@ -5,7 +5,7 @@
         <div class="row">
            <div class="col-md-12">
              <%= render :partial => "layouts/breadcrumb", :locals => {:breadcrumb => @breadcrumb}%>
-           <h1 class="h1"><i class="fa fa-bars"></i> App Configurations</h1>
+           <h1 class="h1"><i class="fa fa-cog"></i> App Configurations</h1>
        </div>
        </div>
        <div class="row">
@@ -31,7 +31,7 @@
                            </tr>
                          </table>
                        </div>
-                       <div class="col-md-4">
+                       <div class="col-md-4 ext-margin20">
                          <input type="button" class="btn btn-primary" onclick="update_app_configurations($('#update_social_data_value').val(),1)" value="Update">
                        </div>
                      </div>
@@ -47,7 +47,7 @@
                             </tr>
                          </table>
                        </div>
-                       <div class="col-md-4">
+                       <div class="col-md-4 ext-margin20">
                          <input type="button" class="btn btn-primary" onclick="update_app_configurations($('#update_fb_access_token').val(),2)" value="Update">
                        </div>
                      </div>
