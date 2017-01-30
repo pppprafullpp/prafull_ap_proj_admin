@@ -502,7 +502,7 @@ img {
   background: #AAA;
 }
 /* ==========================================================================
-   Main Content 
+   Main Content
    ========================================================================== */
 .main-content-wrapper {
   margin-left: 240px;
@@ -2496,6 +2496,7 @@ h3.timeline-title {
   #main-content .h1 {
     font-size: 35px;
   }
+
 }
 @media only screen and (max-width: 660px) {
   #header {
@@ -2530,6 +2531,7 @@ h3.timeline-title {
   .user-nav ul li {
     font-size: 12px;
   }
+    .ext-margin20 { margin:20px 0;}
 }
 @media only screen and (max-width: 479px) {
   /* Main Content */
@@ -2589,8 +2591,8 @@ margin-left: -5px;
 }
 #leftside-navigation ul.nano-content ul.list-inline li{
     background: none;
-    padding-left: 0; 
-    padding-right: 0; 
+    padding-left: 0;
+    padding-right: 0;
 }
 #leftside-navigation ul.nano-content ul.list-inline li a i{
     width: inherit;
@@ -2604,7 +2606,7 @@ padding: 5px 0 5px 5px;
 }
 
 .nano-content .user-panel .info .list-inline .i {
-min-width: 14px;  
+min-width: 14px;
 }
 
 
@@ -2672,7 +2674,7 @@ img.img-thumb		{max-width: 60px;}
 div.alphabet 		{display: table; margin-bottom: 1em; width: 100%;}
 div.alphabet span 	{color: #3174c7; cursor: pointer; display: table-cell; text-align: center; width: 3.5%;}
 .price-features-new {background-color: #f8f8f8; padding: 30px 20px 20px;}
-.price-features-new h4{ font-size:24px; color:#000; font-weight:bold;}	
+.price-features-new h4{ font-size:24px; color:#000; font-weight:bold;}
 .price-cta-new 		{background-color: #f8f8f8;    margin-bottom: 20px;    padding-bottom: 20px;    padding-left: 20px;    padding-right: 20px;}
 .price-cta-number 	{color: #007fbe; font-size: 24px;}
 .price-plan-time-unit{font-size:18px; color:#000; }
@@ -2680,8 +2682,3 @@ div.alphabet span 	{color: #3174c7; cursor: pointer; display: table-cell; text-a
 @media only screen and (max-width: 767px){
 	.dataTables_filter, .dataTables_info	{text-align:center; margin-bottom:20px;}
 }
-
-
-
-
-
