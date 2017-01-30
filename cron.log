@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2017-01-23T20:00:04+05:30
 --- !ruby/exception:SocketError
 message: 'getaddrinfo: Name or service not known (graph.facebook.com:443)'
@@ -25,5 +26,37 @@ message: "(#803) Some of the aliases you requested do not exist: Justin.Bieber.I
 status: 404
 type: OAuthException
 code: 803
+=======
+2017-01-25T00:00:05+05:30
+--- !ruby/exception:FbGraph2::Exception::InvalidToken
+message: This IP can't make requests for that application.
+status: 401
+type: OAuthException
+code: 190
+>>>>>>> 33b7a60ffa46700346d0cd95286ff517dcaea2fe
+error_subcode: 
+--------------------------------------------------------------------------------------
+2017-01-27T20:00:03+05:30
+--- !ruby/exception:FbGraph2::Exception::InvalidToken
+message: Invalid OAuth access token signature.
+status: 401
+type: OAuthException
+code: 190
+error_subcode: 
+--------------------------------------------------------------------------------------
+2017-01-28T20:00:04+05:30
+--- !ruby/exception:FbGraph2::Exception::InvalidToken
+message: Invalid OAuth access token signature.
+status: 401
+type: OAuthException
+code: 190
+error_subcode: 
+--------------------------------------------------------------------------------------
+2017-01-29T20:00:04+05:30
+--- !ruby/exception:FbGraph2::Exception::InvalidToken
+message: Invalid OAuth access token signature.
+status: 401
+type: OAuthException
+code: 190
 error_subcode: 
 --------------------------------------------------------------------------------------
