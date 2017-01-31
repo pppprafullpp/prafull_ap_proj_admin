@@ -33,7 +33,7 @@
                     <tbody>
                       <%@influencers.each do |influencer|%>
                         <tr id="row_<%=influencer.id%>">
-                            <td><%=influencer.name%></td>
+                            <td><a href="<%=influencers_path(id:influencer.id)%>"><%=influencer.name%></a></td>
                             <td><%=influencer.email%></td>
                             <td><%=influencer.social_account.facebook_page_count rescue nil%></td>
                             <td><%=influencer.social_account.platform_type_id rescue nil%></td>

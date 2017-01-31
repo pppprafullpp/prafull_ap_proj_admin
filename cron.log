@@ -1,0 +1,8 @@
+2017-01-31T18:00:06+05:30
+--- !ruby/exception:FbGraph2::Exception::InvalidRequest
+message: Unsupported get request. Please read the Graph API documentation at https://developers.facebook.com/docs/graph-api
+status: 400
+type: GraphMethodException
+code: 100
+error_subcode: 
+--------------------------------------------------------------------------------------
