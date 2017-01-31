@@ -1,0 +1,46 @@
+<%=render :partial=>"layouts/header"%>
+<%=render :partial=>"layouts/left_panel"%>
+
+        <section class="main-content-wrapper column">
+           <section id="main-content">
+                <div class="row">
+
+               </div>
+
+            <div class="row">
+             <div class="col-md-12">
+                 <div class="panel panel-default">
+                   <div class="panel-body">
+                     <section class="account section" style="min-height:575px;">
+                        <div class="row">
+                        <div class="col-md-12">
+                          <h1>Influencer Details</h1>
+                        </div>
+                       </div>
+                      <div class="row">
+                        <div class="col-sm-4"><img class="img-responsive" alt="team" src="<%=@influencer_data.profile_image_url%>"></div>
+                        <div class="col-sm-8">
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Name: </strong><%=@influencer_data.name rescue "NA"%></span>
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Category: </strong><%= Category.find(@influencer_data.category_id).name rescue "NA"%></span>
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Publishing Price: </strong>$ <%= @influencer_data.publishing rescue "0"%></span>
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Category: </strong><%= @influencer_data.category_id rescue "NA"%></span>
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Email: </strong><%= @influencer_data.email rescue "NA"%></span>
+
+                            <h3><b>Financial Information</b></h3>
+                            <!-- InfluencerFinancialInfo(id: integer, influencer_id: integer, bank_name: text, bank_branch: text, ifsc_code: text, ac_type: text, ac_number: text,  -->
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Bank Name: </strong><%= @financial_info.bank_name rescue "NA"%></span>
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Bank Branch: </strong><%= @financial_info.bank_branch rescue "NA"%></span>
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>A/c No: </strong><%= @financial_info.ac_number rescue "NA"%></span>
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>IFSC Code: </strong><%= @financial_info.ifsc_code rescue "NA"%></span>
+                            <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Ac Type: </strong><%= InfluencersController::AC_TYPES.key(@financial_info.ac_type.to_i ) rescue nil%>
+                          </div>
+                      </div>
+                   </section>
+
+                </div>
+              </div>
+            </div>
+           </div>
+
+           </section>
+        </section>

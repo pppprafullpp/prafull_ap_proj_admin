@@ -5,6 +5,8 @@ class Influencer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
     has_one :social_account
+    has_one :influencer_financial_info
+
     has_many :advertisements
     scope :most_recent, -> (limit) { order("created_at desc").limit(limit) }
     def online
