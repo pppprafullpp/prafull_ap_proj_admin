@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get :app_configurations
     post :reset_password
     post :get_notifications
+    post :send_mail_from_admin
   end
 
   resources :advertisements do

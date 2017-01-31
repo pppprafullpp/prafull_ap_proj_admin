@@ -65,8 +65,7 @@
           <div class="panel-heading">
             <h3 class="panel-title">Social Advertisers</h3>
             <div class="actions pull-right">
-            <i class="fa fa-chevron-down"></i>
-            </div>
+             </div>
           </div>
           <div class="panel-body">
             <!-- <div class="row">
@@ -82,7 +81,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Ads Initiated</th>
-                <th>Action</th>
+                <!-- <th>Action</th> -->
                 </tr>
                 </thead>
 
@@ -97,10 +96,10 @@
                       <td><%=recent_advertiser.name%> </td>
                       <td><%=recent_advertiser.email%> </td>
                       <td><%=check_ad_status_for_advertiser(recent_advertiser.id)%></td>
-                      <td>
+                      <!-- <td>
                         <a href="#" class="blue"></a>
                         <a href="#" class="blue"><i class="fa fa-envelope" title="Contact"></i></a>
-                      </td>
+                      </td> -->
                    </tr>
                    <%end%>
                 </tbody>
@@ -117,7 +116,6 @@
         <div class="panel-heading">
           <h3 class="panel-title">Social Influencer</h3>
           <div class="actions pull-right">
-          <i class="fa fa-chevron-down"></i>
           </div>
         </div>
         <div class="panel-body">
@@ -134,7 +132,7 @@
               <th>Name</th>
               <th>Email</th>
               <th>Publishing Price($)</th>
-              <th>Action</th>
+              <!-- <th>Action</th> -->
             </tr>
             </thead>
 
@@ -149,10 +147,9 @@
             <td><%=recent_influencer.name%></td>
             <td><%=recent_influencer.email%> </td>
             <td>$ <%=recent_influencer.publishing_price || 0%> </td>
-            <td><%=recent_influencer.name%></td>
-            <td>
+             <!-- <td>
                <a href="#" class="blue"><i class="fa fa-envelope" title="Contact"></i></a>
-            </td>
+            </td> -->
           </tr>
           <%end%>
 

@@ -59,4 +59,12 @@ class AdminsController < ApplicationController
     notifications
   end
 
+  def send_mail_from_admin
+    # raise params.to_yaml
+    NotificationMailer.send_mail_from_admin(params[:mailing_email],params[:subject],params[:message],nil).deliver_now!
+    flash[:success] = "Sent"
+    redirect_to :back
+  end
+# send_mail_from_admin(to,subject,message,attachment_link)
+
 end

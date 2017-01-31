@@ -24,16 +24,16 @@
                 <h4 class="member-name"><b>Title</b>:<%=@advertisement.title%></h4>
                 <p><strong>Description:</strong><%=@advertisement.description%></p>
                 <p>
-                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Caption:</strong><%=@advertisement.caption rescue nil%></span>
-                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Platform:</strong><%=Advertisement::PLATFORMS.key(@advertisement.platform) rescue nil%></span>
-                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Posted By:</strong><%=Advertiser.find(@advertisement.advertiser_id).name rescue nil%></span>
-                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Advertiser's Name:</strong><%=Advertiser.find(@advertisement.advertiser_id).name rescue nil%></span>
-                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Advertiser's Email:</strong><%=Advertiser.find(@advertisement.advertiser_id).email rescue nil%><span style="float:right;cursor:pointer">
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Caption:</strong><%=@advertisement.caption rescue"NA"%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Platform:</strong><%=Advertisement::PLATFORMS.key(@advertisement.platform) rescue"NA"%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Posted By:</strong><%=Advertiser.find(@advertisement.advertiser_id).name rescue"NA"%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Advertiser's Name:</strong><%=Advertiser.find(@advertisement.advertiser_id).name rescue"NA"%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Advertiser's Email:</strong><%=Advertiser.find(@advertisement.advertiser_id).email rescue"NA"%><span style="float:right;cursor:pointer">
                     <i onclick="send_email('<%=Advertiser.find(@advertisement.advertiser_id).email rescue nil%>')" class='fa fa-envelope'></i></span></span>
-                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Influencer's Name:</strong><%=Influencer.find(@advertisement.influencer_id).name rescue nil%></span>
-                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Influencer's Email:</strong><%=Influencer.find(@advertisement.influencer_id).email rescue nil%><span style="float:right;cursor:pointer">
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Influencer's Name:</strong><%=Influencer.find(@advertisement.influencer_id).name rescue"NA"%></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><strong>Influencer's Email:</strong><%=Influencer.find(@advertisement.influencer_id).email rescue"NA"%><span style="float:right;cursor:pointer">
                     <i onclick="send_email('<%=Influencer.find(@advertisement.influencer_id).email rescue nil%>')" class='fa fa-envelope'></i></span></span>
-                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><b><strong>Current Status:</strong><%= Advertisement::STATUS.key(@advertisement.status) rescue nil%></b></span>
+                  <span style="border-bottom:solid 1px #e1e1e1; margin-bottom:10px; padding-bottom:10px; display:block"><b><strong>Current Status:</strong><%= Advertisement::STATUS.key(@advertisement.status) rescue"NA"%></b></span>
                 </p>
               </div>
               </div>
