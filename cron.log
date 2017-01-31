@@ -60,3 +60,11 @@ type: OAuthException
 code: 190
 error_subcode: 
 --------------------------------------------------------------------------------------
+2017-01-30T20:00:04+05:30
+--- !ruby/exception:FbGraph2::Exception::InvalidToken
+message: Invalid OAuth access token signature.
+status: 401
+type: OAuthException
+code: 190
+error_subcode: 
+--------------------------------------------------------------------------------------
