@@ -8,7 +8,7 @@ class NotificationMailer < ApplicationMailer
     def send_mail_from_admin(to,subject,message,attachment_link)
       puts "sending mail to #{to}"
       @msg = message
-      @attachment_link = attachment_link
+      @attachment_link = attachment_link || nil
       mail(:to=>to,:subject=>subject).deliver!
     end
 end

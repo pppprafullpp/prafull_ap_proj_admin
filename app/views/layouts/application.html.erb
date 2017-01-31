@@ -5,17 +5,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-  <script>
-  $(document).on('page:change', function() {
-    // your stuff here
-    console.log("ddd");
-  });
-  $(document).on('turbolinks:load', function() {
-  // Should be called at each visit
-})
-  </script>
- </head>
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+   </head>
 
 <body class="animated fadeIn">
   <% unless flash.empty? %>

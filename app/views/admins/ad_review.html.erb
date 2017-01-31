@@ -17,14 +17,14 @@
        <div class="col-md-3">
        <div class="form-group">
        <label class="" for="">Influencer</label>
-       <%=select_tag(:influencer_id,options_for_select(Influencer.all.collect{ |u| ["#{u.name}(#{u.email})",u.id]},params[:search][:influencer_id]),{:include_blank=>"Select Influencer",:class=>"form-control",:name=>"search[influencer_id]"})%>
+       <%=select_tag(:influencer_id,options_for_select(Influencer.all.collect{ |u| ["#{u.name}(#{u.email})",u.id]},params[:search][:influencer_id]),{:prompt=>"Select Influencer",:class=>"form-control",:name=>"search[influencer_id]"})%>
        </div>
        </div>
 
        <div class="col-md-3">
        <div class="form-group">
        <label class="" for="">Advertiser</label>
-       <%=select_tag(:advertiser_id,options_for_select(Advertiser.all.collect{ |u| ["#{u.name}(#{u.email})",u.id]},params[:search][:advertiser_id]),{:include_blank=>"Select Advertiser",:class=>"form-control",:name=>"search[advertiser_id]"})%>
+       <%=select_tag(:advertiser_id,options_for_select(Advertiser.all.collect{ |u| ["#{u.name}(#{u.email})",u.id]},params[:search][:advertiser_id]),{:prompt=>"Select Advertiser",:class=>"form-control",:name=>"search[advertiser_id]"})%>
        </div>
        </div>
 
@@ -39,7 +39,7 @@
        <div class="form-group">
 
        <label class="" for="">Status</label>
-       <%=select_tag(:advertisement_status,options_for_select(Advertisement::STATUS,params[:search][:advertisement_status]),{:include_blank=>"Ad Status",:class=>"form-control",:name=>"search[advertisement_status]"})%>
+       <%=select_tag(:advertisement_status,options_for_select(Advertisement::STATUS,params[:search][:advertisement_status]),{:prompt=>"Ad Status",:class=>"form-control",:name=>"search[advertisement_status]"})%>
           </div>
        </div>
 
@@ -113,7 +113,7 @@
                            <th>Influencer Name</th>
                            <th>Influencer Email</th>
                            <th>Current Status</th>
-                           <th>Reason for decline</th>
+                           <!-- <th>Reason for decline</th> -->
                            <th>Action</th>
                        </tr>
                    </thead>
@@ -133,7 +133,7 @@
                            <td><%= Influencer.find(advertisement.influencer_id).name rescue nil %></td>
                            <td><%= Influencer.find(advertisement.influencer_id).email rescue nil %></td>
                            <td><%= Advertisement::STATUS.key (advertisement.status )%> </td>
-                           <td><%=advertisement.reason_for_decline%> </td>
+                           <!-- <td><%#=advertisement.reason_for_decline%> </td> -->
                            <td>
                              <%if advertisement.status == Advertisement::STATUS["Published by influencer"] %>
                               <p>Published</p>
@@ -154,7 +154,7 @@
                </table>
                </div>
                <%=will_paginate @advertisements, renderer: BootstrapPagination::Rails%>
-              </div>
+                </div>
             </div>
        </div>
    </div>
@@ -186,6 +186,5 @@
     $("#declinePopup").modal("show");
   }
 </script>
-
-   </section>
+ </section>
 </section>
