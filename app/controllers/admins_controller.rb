@@ -40,6 +40,7 @@ class AdminsController < ApplicationController
     @app_configurations = AppConfiguration.all
     @update_social_data = AppConfiguration.find_by(:config_key=>"update_social_data").config_value
     @facebook_token = AppConfiguration.find_by(:config_key=>"facebook_access_token").config_value
+    @instagram_token = AppConfiguration.find_by(:config_key=>"instagram_access_token").config_value
   end
 
   def reset_password

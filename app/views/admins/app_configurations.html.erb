@@ -52,6 +52,22 @@
                        </div>
                      </div>
 
+                     <div class="row">
+                       <div class="col-md-4">
+                         Instagram Access token
+                       </div>
+                       <div class="col-md-4">
+                         <table style="width:100%">
+                           <tr>
+                             <td><input type="text" id="update_ig_access_token"  value="<%=@instagram_token%>" class="form-control" /></td>
+                            </tr>
+                         </table>
+                       </div>
+                       <div class="col-md-4 ext-margin20">
+                         <input type="button" class="btn btn-primary" onclick="update_app_configurations($('#update_ig_access_token').val(),3)" value="Update">
+                       </div>
+                     </div>
+
                 </div>
               </div>
          </div>
@@ -68,8 +84,11 @@ function update_app_configurations(data,type){
     break;
     case 2: config_key = "facebook_access_token",
     config_value = data;
+    break;
+    case 3: config_key = "instagram_access_token",
     config_value = data;
-  }
+    break;
+   }
   response = make_changes_in_app_configurations(config_key,config_value)
   console.log(response);
   if( response["success"] == true) {
