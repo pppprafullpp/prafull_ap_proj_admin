@@ -31,7 +31,7 @@
        <div class="col-md-3">
        <div class="form-group">
          <label class="" for="">Category</label>
-         <%=f.select(:category,options_for_select(Category.pluck(:name),params[:search][:category]),{},:class=>"form-control", :name=>"search[category]")%>
+         <%=f.select(:category,options_for_select(Category.pluck(:category_name),params[:search][:category]),{},:class=>"form-control", :name=>"search[category]")%>
          </div>
        </div>
 
