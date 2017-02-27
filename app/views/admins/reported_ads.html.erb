@@ -39,7 +39,7 @@
                        <%@reported_ads.each do |r|%>
                        <tr style="cursor:pointer" onclick="window.open('/advertisements/<%=r.id%>','_self')">
                          <td><%=Advertisement::TYPE.key(r.ad_type.to_i)%></td>
-                         <td><%=Category.find(r.category).name%></td>
+                         <td><%=Category.find(r.category).category_name%></td>
                          <td><%=r.reason_for_decline%></td>
                         </tr>
                        <%end%>

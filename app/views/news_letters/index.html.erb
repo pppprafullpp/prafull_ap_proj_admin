@@ -32,7 +32,7 @@
       <div class="col-md-3">
       <div class="form-group">
         <label class="" for="">Category</label>
-        <%=f.select(:category,options_for_select(Category.pluck(:name)),{},:class=>"form-control")%>
+        <%=f.select(:category,options_for_select(Category.pluck(:category_name)),{},:class=>"form-control")%>
         </div>
       </div>
 
